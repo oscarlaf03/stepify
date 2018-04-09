@@ -1,9 +1,45 @@
+
+<!-- Steplist header -->
+
+<div class="steplist-show-header">
+
+      <h2><%= @steplist.title %></h2>
+
+ </div>
+
+<div class = "steplist-show-infobar">
+    <ul>
+      <li>Author: <%= @steplist.id  %></li>
+      <li>Last edited: <%= @steplist.steps.count %></li>
+      <li>Completion: <%= @steplist.id  %></li>
+    </ul>
+</div>
+
+<div class="container">
+  <p>Steplist id: <%= @steplist.description  %></p>
+    <ul>
+      <% @steplist.steps.each do |step|  %>
+      <li>
+          <%=step.title %>
+      </li>
+          </ul>
+      <% end %>
+
+</div>
+
+<div class="container" >
+<%= link_to "Edit", edit_steplist_path(@steplist), class: 'btn btn-success'  %>
+<%= link_to "Destroy", steplist_path(@steplist),method: :delete,data: {confirm: "No going Back"}, class: 'btn btn-danger'  %>
+
+
+
 <% %>
 <h1>Steplists#show</h1>
 <h2>Show page for Steplist title: <%= @steplist.title %></h2>
 <h3>Steplist id: <%= @steplist.id  %></h3>
 <h3>Steplist id: <%= @steplist.description  %></h3>
 <h4>Total Steps for this steplist: <%= @steplist.steps.count %></h4>
+
   <ol>
     <% @steplist.steps.each do |step|  %>
     <li>
@@ -24,4 +60,13 @@
 
 <%= link_to "Edit", edit_steplist_path(@steplist), class: 'btn btn-success btn-lg'  %>
 <%= link_to "Destroy", steplist_path(@steplist),method: :delete,data: {confirm: "No going Back"}, class: 'btn btn-danger btn-lg'  %>
+
+
+
 <p>Find me in app/views/steplists/show.html.erb</p>
+
+ <%= render 'shared/step_card' %>
+
+
+</div>
+

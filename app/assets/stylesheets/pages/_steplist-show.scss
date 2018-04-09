@@ -1,0 +1,29 @@
+
+
+.steplist-show-header{
+  background-color: $light-gray;
+  display: flex;
+  justify-content: center;
+  min-height: 150px;
+  h2{
+    margin-top: 0px;
+    font-size: 50px;
+  }
+}
+
+.steplist-show-infobar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $stepify-dark-gray;
+  color: $light-gray;
+  ul{
+    margin: 10px;
+  }
+  li{
+    display: inline;
+    list-style-type: none;
+    float: left;
+    margin: 0px 15px;
+  }
+}
