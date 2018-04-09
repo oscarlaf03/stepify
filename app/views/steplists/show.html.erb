@@ -32,14 +32,24 @@
 <%= link_to "Destroy", steplist_path(@steplist),method: :delete,data: {confirm: "No going Back"}, class: 'btn btn-danger'  %>
 
 
+
+<% %>
+<h1>Steplists#show</h1>
+<h2>Show page for Steplist title: <%= @steplist.title %></h2>
+<h3>Steplist id: <%= @steplist.id  %></h3>
+<h3>Steplist id: <%= @steplist.description  %></h3>
+<h4>Total Steps for this steplist: <%= @steplist.steps.count %></h4>
+
   <ol>
     <% @steplist.steps.each do |step|  %>
     <li>
         <%=step.title %>
-        <%= link_to 'delete',steplist_step_path(@steplist, step),method: :delete,data:{confim: "no going back"}, class: 'btn btn-danger btn-xs' %>
-        <%= link_to 'edit',edit_steplist_step_path(@steplist, step),class: 'btn btn-success btn-xs' %>
+        step id <%=step.id %>
         <br>
         <%= step.description  %>
+        <%= link_to 'edit', edit_steplist_step_path(@steplist, step), class: 'btn btn-primary btn-xs' %>
+        <%= link_to 'delete',steplist_step_path(@steplist, step),method: :delete, data: {confirm: 'No going back'}, class: 'btn btn-danger btn-xs'  %>
+
     </li>
     <% end %>
   </ol>

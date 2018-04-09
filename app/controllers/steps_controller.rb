@@ -1,19 +1,18 @@
 class StepsController < ApplicationController
-  before_action :set_step
+  before_action :set_step, only: [:edit,:update, :destroy]
   before_action :set_user
   before_action :set_steplist, only: [:create, :edit, :new, :update, :destroy]
 
   def new
-    @step = Step.new
+    @step = @steplist.steps.build
   end
 
   def create
-    @step = Step.new(check_step_params)
-    @step.steplist = @steplist
+    @step = @steplist.steps.build(step_params)
     if @step.save
       redirect_to steplist_path(@steplist)
     else
-      redirect_to steplist_path(@steplist)
+      render :show
     end
   end
 
@@ -21,7 +20,7 @@ class StepsController < ApplicationController
   end
 
   def update
-    if @step.update(check_step_params)
+    if @step.update(step_params)
       redirect_to steplist_path(@steplist)
       else render :new
     end
@@ -36,7 +35,7 @@ class StepsController < ApplicationController
   private
 
   def set_step
-    @step = Step.find.(params[:id])
+    @step = Step.find(params[:id])
   end
 
   def set_user
@@ -47,7 +46,7 @@ class StepsController < ApplicationController
     @steplist = Steplist.find(params[:steplist_id])
   end
 
-  def check_step_params
+  def step_params
     params.require(:step).permit(:title,:description,:video,:photo,:document,:photo_cache, :steplist_id, :id)
   end
 end

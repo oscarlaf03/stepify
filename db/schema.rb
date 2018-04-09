@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409192147) do
+ActiveRecord::Schema.define(version: 20180409222717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,18 +53,18 @@ ActiveRecord::Schema.define(version: 20180409192147) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "visited_steplists", force: :cascade do |t|
+  create_table "visualizations", force: :cascade do |t|
     t.integer "last_step"
     t.bigint "user_id"
     t.bigint "steplist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["steplist_id"], name: "index_visited_steplists_on_steplist_id"
-    t.index ["user_id"], name: "index_visited_steplists_on_user_id"
+    t.index ["steplist_id"], name: "index_visualizations_on_steplist_id"
+    t.index ["user_id"], name: "index_visualizations_on_user_id"
   end
 
   add_foreign_key "steplists", "users"
   add_foreign_key "steps", "steplists"
-  add_foreign_key "visited_steplists", "steplists"
-  add_foreign_key "visited_steplists", "users"
+  add_foreign_key "visualizations", "steplists"
+  add_foreign_key "visualizations", "users"
 end
