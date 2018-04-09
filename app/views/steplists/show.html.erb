@@ -1,3 +1,4 @@
+
 <!-- Steplist header -->
 
 <div class="steplist-show-header">
@@ -29,6 +30,29 @@
 <div class="container" >
 <%= link_to "Edit", edit_steplist_path(@steplist), class: 'btn btn-success'  %>
 <%= link_to "Destroy", steplist_path(@steplist),method: :delete,data: {confirm: "No going Back"}, class: 'btn btn-danger'  %>
+
+
+  <ol>
+    <% @steplist.steps.each do |step|  %>
+    <li>
+        <%=step.title %>
+        <%= link_to 'delete',steplist_step_path(@steplist, step),method: :delete,data:{confim: "no going back"}, class: 'btn btn-danger btn-xs' %>
+        <%= link_to 'edit',edit_steplist_step_path(@steplist, step),class: 'btn btn-success btn-xs' %>
+        <br>
+        <%= step.description  %>
+    </li>
+    <% end %>
+  </ol>
+
+  <h4>Add a Step to this steplist</h4>
+  <%= render 'shared/form_step'  %>
+
+
+<%= link_to "Edit", edit_steplist_path(@steplist), class: 'btn btn-success btn-lg'  %>
+<%= link_to "Destroy", steplist_path(@steplist),method: :delete,data: {confirm: "No going Back"}, class: 'btn btn-danger btn-lg'  %>
+
+
+
 <p>Find me in app/views/steplists/show.html.erb</p>
 
  <%= render 'shared/step_card' %>
