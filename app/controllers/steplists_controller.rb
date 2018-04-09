@@ -19,7 +19,7 @@ class SteplistsController < ApplicationController
   end
 
   def update
-    if @steplist.update(check_params)
+    if @steplist.update(check_steplist_params)
       redirect_to steplist_path(@steplist)
     else
       render :edit
@@ -31,6 +31,7 @@ class SteplistsController < ApplicationController
   end
 
   def show
+    @step_in_show = Step.new
   end
 
   def destroy
@@ -45,8 +46,8 @@ class SteplistsController < ApplicationController
     @steplist = Steplist.find(params[:id])
   end
 
-  def check_params
-    params.require(:steplist).permit(:title, :description)
+  def check_steplist_params
+    params.require(:steplist).permit(:title, :description, :steplist_id, :id)
   end
 
   def set_user
