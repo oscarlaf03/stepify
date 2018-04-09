@@ -6,8 +6,7 @@ class SteplistsController < ApplicationController
   end
 
   def create
-    @steplist = Steplist.new(check_params)
-    @steplist.user = @user
+    @steplist = current_user.steplists.build(steplist_params)
     if @steplist.save
       redirect_to steplist_path(@steplist)
     else
@@ -31,7 +30,8 @@ class SteplistsController < ApplicationController
   end
 
   def show
-    @step_in_show = Step.new
+    @step = Step.new
+    # current_user.visualized_steplists << @steplist
   end
 
   def destroy
@@ -43,15 +43,19 @@ class SteplistsController < ApplicationController
   private
 
   def set_steplist
-    @steplist = Steplist.find(params[:id])
+    @steplist = current_user.steplists.find(params[:id])
   end
 
-  def check_steplist_params
+  def steplist_params
     params.require(:steplist).permit(:title, :description, :steplist_id, :id)
   end
 
   def set_user
     @user = current_user
+  end
+
+   def set_step
+    @step = Step.find(params[:id])
   end
 
 end
