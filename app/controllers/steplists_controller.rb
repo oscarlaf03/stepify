@@ -3,10 +3,12 @@ class SteplistsController < ApplicationController
   before_action :set_steplist, only: [:edit, :show, :update, :destroy ]
   def new
     @steplist = Steplist.new
+    authorize @steplist
   end
 
   def create
     @steplist = Steplist.new(steplist_params)
+    authorize @steplist
     if @steplist.save
       redirect_to steplist_path(@steplist)
     else
@@ -26,7 +28,7 @@ class SteplistsController < ApplicationController
   end
 
   def index
-    @steplists = Steplist.all
+    @steplists = policy_scope(Steplist).order(created_at: :desc)
   end
 
   def show
@@ -44,6 +46,7 @@ class SteplistsController < ApplicationController
 
   def set_steplist
     @steplist = Steplist.find(params[:id])
+    authorize @steplist
   end
 
   def steplist_params
