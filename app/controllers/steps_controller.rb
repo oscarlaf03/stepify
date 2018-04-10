@@ -34,9 +34,7 @@ class StepsController < ApplicationController
   end
 
   def destroy
-    if @step.destroy
-      redirect_to steplist_path(@steplist)
-    end
+    @step.destroy
   end
 
 
