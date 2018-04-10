@@ -35,6 +35,7 @@ class SteplistsController < ApplicationController
 
   def show
     @step = Step.new
+    @steps = @steplist.steps.order(:created_at)
   end
 
   def destroy

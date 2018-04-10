@@ -1,7 +1,7 @@
 class StepsController < ApplicationController
   before_action :set_step, only: [:edit,:update, :destroy]
   before_action :set_user
-  before_action :set_steplist, only: [:create, :edit, :new, :update, :destroy]
+  before_action :set_steplist, only: [:create, :new]
 
   def new
     @step = Step.new
@@ -27,10 +27,7 @@ class StepsController < ApplicationController
   end
 
   def update
-    if @step.update(step_params)
-      redirect_to steplist_path(@steplist)
-      else render :new
-    end
+    @step.update(step_params)
   end
 
   def destroy
