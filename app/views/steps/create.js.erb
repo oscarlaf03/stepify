@@ -1,0 +1,25 @@
+// app/views/reviews/create.js.erb
+// Here you generate *JavaScript* that would be executed in the browser
+function refreshForm(innerHTML) {
+  const newForm = document.getElementById('new_step');
+  newForm.innerHTML = innerHTML;
+}
+
+function addStep(stepHTML) {
+  const steps = document.getElementById('steps');
+  steps.insertAdjacentHTML('beforeend', stepHTML);
+}
+
+<% if @step.errors.any? %>
+  console.log('aqui if errors true');
+  refreshForm('<%= j render "shared/form_step", steplist: @steplist, step: @step %>');
+  console.log('<%= @step.errors %>');
+  console.log('final do errors true');
+
+<% else %>
+  console.log('aqui if errors false')
+  addStep('<%= j render "shared/show_step", step: @step, steplist: @steplist %>');
+  refreshForm('<%= j render "shared/form_step", steplist: @steplist, step: Step.new %>');
+  console.log('final do errors false');
+
+<% end %>
