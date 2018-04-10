@@ -1,0 +1,28 @@
+#step-title-timeline{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  color: $stepify-gray;
+}
+
+.fa{
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+#content-icon{
+  color: $stepify-light-gray;
+}
+
+@media only screen and (min-width: 1170px) {
+
+.fa{
+  padding-left: 15px;
+  padding-top: 15px;
+  font-size: 30px;
+  color: white;
+
+  }
+}
