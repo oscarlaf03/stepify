@@ -42,6 +42,7 @@ class StepsController < ApplicationController
 
   def set_step
     @step = Step.find(params[:id])
+    authorize @step
   end
 
   def set_user
@@ -50,6 +51,7 @@ class StepsController < ApplicationController
 
   def set_steplist
     @steplist = Steplist.find(params[:steplist_id])
+    authorize @steplist
   end
 
   def step_params

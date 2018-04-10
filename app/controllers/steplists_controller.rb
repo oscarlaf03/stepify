@@ -29,11 +29,12 @@ class SteplistsController < ApplicationController
 
   def index
     @steplists = policy_scope(Steplist).order(created_at: :desc)
+    @my_created_steplists = policy_scope(Steplist).where(user: current_user)
+
   end
 
   def show
     @step = Step.new
-    # current_user.visualized_steplists << @steplist
   end
 
   def destroy

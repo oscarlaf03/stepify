@@ -1,2 +1,14 @@
-<h1>Steplists#index</h1>
-<p>Find me in app/views/steplists/index.html.erb</p>
+<% if !@my_created_steplists.nil?  %>
+
+  <h1> Steplists you created</h1>
+  <ul>
+    <% @my_created_steplists.each do  |steplist|%>
+      <li>
+        <%= link_to "#{steplist.title}",steplist_path(steplist) %>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+    <h1>Create your first steplist</h1>
+    <% link_to "Create Steplist", new_steplist_path, class: 'btn btn-primary btn-xl'  %>
+  <% end %>
