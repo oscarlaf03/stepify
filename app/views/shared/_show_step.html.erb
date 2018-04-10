@@ -7,8 +7,10 @@
     <%= step.description  %>
   </td>
   <td>
-    <%= link_to '<i class="fa fa-trash fa-sm"></i>'.html_safe, steplist_step_path(@steplist, step), class: 'btn btn-danger btn-xs', method: :delete,remote: true, data: {confirm: "No going back"}   %>
-    <%= link_to '<i class="fa fa-edit fa-xs"></i>'.html_safe, edit_steplist_step_path(@steplist, step), class: 'btn btn-primary btn-xs'  %>
+    <% if current_user == @steplist.user %>
+      <%= link_to '<i class="fa fa-trash fa-sm"></i>'.html_safe, steplist_step_path(@steplist, step), class: 'btn btn-danger btn-xs', method: :delete,remote: true, data: {confirm: "No going back"}   %>
+      <%= link_to '<i class="fa fa-edit fa-xs"></i>'.html_safe, edit_steplist_step_path(@steplist, step), class: 'btn btn-primary btn-xs'  %>
+      <% end %>
   </td>
 </tr>
 

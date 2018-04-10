@@ -13,6 +13,25 @@ array_users = []
   array_users << a_user
 end
 
+oscar = User.new
+oscar.password = '123123'
+oscar.first_name = 'oscar'
+oscar.last_name = 'teste'
+oscar.email = 'oscar@teste.com'
+oscar.save
+
+miguel = User.new
+miguel.password = '123123'
+miguel.first_name = 'miguel'
+miguel.last_name = 'teste'
+miguel.email = 'miguel@teste.com'
+miguel.save
+
+array_users << oscar
+array_users << miguel
+
+
+
 puts "#{User.count} users created "
 
 array_steplists = []
@@ -47,21 +66,6 @@ puts "#{Step.count} steps created"
 
 puts 'creating root power users'
 
-oscar = User.new
-oscar.password = '123123'
-oscar.first_name = 'oscar'
-oscar.last_name = 'teste'
-oscar.email = 'oscar@teste.com'
-oscar.save
 
-miguel = User.new
-miguel.password = '123123'
-miguel.first_name = 'miguel'
-miguel.last_name = 'teste'
-miguel.email = 'miguel@teste.com'
-miguel.save
-
-Steplist.all[0].update(user: oscar)
-Steplist.all[1].update(user: miguel)
 
 puts 'All tasks finalized'

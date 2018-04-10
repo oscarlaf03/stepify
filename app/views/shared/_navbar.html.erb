@@ -10,8 +10,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Steplists", steplists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -50,9 +50,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%= link_to "My Steplists", steplists_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><a href="#">Another Link</a></li>
       </ul>
     </div>
   </div>

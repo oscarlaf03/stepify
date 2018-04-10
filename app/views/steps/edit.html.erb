@@ -1,1 +1,5 @@
-<%= render 'shared/form_step', step: @step, steplist: @steplist %>
+<%= simple_form_for([@steplist, @step] ) do |f| %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.submit %>
+<% end %>
