@@ -11,6 +11,8 @@ gem 'figaro'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'pundit'
+gem 'jquery-rails'
+gem 'best_in_place', '~> 3.0.1'
 
 
 gem 'autoprefixer-rails'

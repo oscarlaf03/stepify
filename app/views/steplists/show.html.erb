@@ -31,7 +31,7 @@
 
   <div class="step-container" >
     <table class='table' id="steps">
-    <% @steplist.steps.each do |step|  %>
+    <% @steps.each do |step|  %>
       <%= render 'shared/show_step', step: step  %>
     <% end %>
     </table>
