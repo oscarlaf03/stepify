@@ -43,7 +43,7 @@ class SteplistsController < ApplicationController
   private
 
   def set_steplist
-    @steplist = current_user.steplists.find(params[:id])
+    @steplist = Steplist.find(params[:id])
   end
 
   def steplist_params

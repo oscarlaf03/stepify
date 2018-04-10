@@ -1,3 +1,4 @@
+
 require 'faker'
 puts 'creating users'
 array_users = []
@@ -64,10 +65,3 @@ Steplist.all[0].update(user: oscar)
 Steplist.all[1].update(user: miguel)
 
 puts 'All tasks finalized'
-
-
-
-
-
-
-
