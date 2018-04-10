@@ -1,4 +1,4 @@
 class Visualization < ApplicationRecord
   belongs_to :user
-  belongs_to :steplist
+  belongs_to :step
 end
