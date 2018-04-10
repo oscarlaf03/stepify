@@ -4,15 +4,22 @@ class StepsController < ApplicationController
   before_action :set_steplist, only: [:create, :edit, :new, :update, :destroy]
 
   def new
-    @step = @steplist.steps.build
+    @step = Step.new
   end
 
   def create
-    @step = @steplist.steps.build(step_params)
+    @step = Step.new(step_params)
+    @step.steplist = @steplist
     if @step.save
-      redirect_to steplist_path(@steplist)
+      respond_to do |format|
+        format.html { redirect_to steplist_path(@steplist) }
+        format.js
+      end
     else
-      render :show
+      respond_to do |format|
+        format.html { render 'shared/form_step', step: @step, steplist: @steplist }
+        format.js
+      end
     end
   end
 
@@ -27,10 +34,9 @@ class StepsController < ApplicationController
   end
 
   def destroy
-    if @step.destroy
-      redirect_to steplist_path(@steplist)
-    end
+    @step.destroy
   end
+
 
   private
 

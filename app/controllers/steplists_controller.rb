@@ -6,7 +6,7 @@ class SteplistsController < ApplicationController
   end
 
   def create
-    @steplist = current_user.steplists.build(steplist_params)
+    @steplist = Steplist.new(steplist_params)
     if @steplist.save
       redirect_to steplist_path(@steplist)
     else
@@ -18,7 +18,7 @@ class SteplistsController < ApplicationController
   end
 
   def update
-    if @steplist.update(check_steplist_params)
+    if @steplist.update(steplist_params)
       redirect_to steplist_path(@steplist)
     else
       render :edit
