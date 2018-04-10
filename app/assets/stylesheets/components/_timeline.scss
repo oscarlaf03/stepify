@@ -1,7 +1,12 @@
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
 .cd-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-  width: 90%;
-  max-width: 1170px;
+  width: 70%;
+  max-width: 900px;
   margin: 0 auto;
 }
 .cd-container::after {
@@ -11,6 +16,11 @@
   clear: both;
 }
 
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
 
 #cd-timeline {
   position: relative;
@@ -28,6 +38,7 @@
   width: 4px;
   background: #d7e4ed;
 }
+
 @media only screen and (min-width: 1170px) {
   #cd-timeline {
     margin-top: 3em;
@@ -56,13 +67,13 @@
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-block {
-    margin: 4em 0;
+    margin: 3.5em 0;
   }
   .cd-timeline-block:first-child {
-    margin-top: 0;
+    margin-top: 0px;
   }
   .cd-timeline-block:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0px;
   }
 }
 
@@ -85,13 +96,13 @@
   margin-left: -12px;
   margin-top: -12px;
 }
-.cd-timeline-img.cd-picture {
+.cd-timeline-img.cd-done {
   background: #75ce66;
 }
-.cd-timeline-img.cd-movie {
+.cd-timeline-img.cd-seeing {
   background: #c03b44;
 }
-.cd-timeline-img.cd-location {
+.cd-timeline-img.cd-unseen {
   background: #f0ca45;
 }
 @media only screen and (min-width: 1170px) {
@@ -171,13 +182,13 @@
   margin-left: 60px;
   background: #ffffff;
   border-radius: 0.25em;
-  padding: 1em;
+  // padding: 1em;
   box-shadow: 0 3px 0 #d7e4ed;
 }
 .cd-timeline-content::after {
   clear: both;
   content: "";
-  display: table;
+  // display: table;
 }
 .cd-timeline-content h2 {
   color: #303e49;
@@ -190,7 +201,7 @@
   display: inline-block;
 }
 .cd-timeline-content p {
-  margin: 1em 0;
+  // margin: 1em 0;
   line-height: 1.6;
 }
 .cd-timeline-content .cd-read-more {
@@ -235,11 +246,11 @@
 @media only screen and (min-width: 1170px) {
   .cd-timeline-content {
     margin-left: 0;
-    padding: 1.6em;
+    // padding: 1.6em;
     width: 45%;
   }
   .cd-timeline-content::before {
-    top: 24px;
+    // top: 24px;
     left: 100%;
     border-color: transparent;
     border-left-color: #ffffff;
@@ -259,7 +270,7 @@
     float: right;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
-    top: 24px;
+    // top: 24px;
     left: auto;
     right: 100%;
     border-color: transparent;
