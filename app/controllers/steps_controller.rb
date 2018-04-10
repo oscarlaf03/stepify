@@ -27,7 +27,9 @@ class StepsController < ApplicationController
   end
 
   def update
-    @step.update(step_params)
+    if @step.update(step_params)
+      redirect_to steplist_path(@step.steplist)
+    end
   end
 
   def destroy

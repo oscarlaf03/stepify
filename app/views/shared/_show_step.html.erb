@@ -1,10 +1,10 @@
 
 <tr data-step-id='<%= step.id %>'>
   <th>
-    <%= step.title  %>
+    <%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %>
   </th>
   <td>
-    <%= best_in_place(step, :description, as: :textarea)  %>
+    <%= current_user == @steplist.user ? best_in_place(step, :description, as: :textarea) : step.description  %>
   </td>
   <td>
     <% if current_user == @steplist.user %>
