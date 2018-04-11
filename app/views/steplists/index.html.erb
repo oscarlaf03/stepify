@@ -1,6 +1,5 @@
-<h1>this is view for Steplist# INDEX</h1>
 <div class="container">
-    <h1> Steplists you created</h1>
+    <h1> root Home as Steplists#Index</h1>
     <ul>
       <% @steplists.each do  |steplist|%>
         <li>
@@ -8,7 +7,5 @@
         </li>
       <% end %>
     </ul>
-    <% else %>
-      <h1>Create your first steplist</h1>
-      <% link_to "Create Steplist", new_steplist_path, class: 'btn btn-primary btn-xl'  %>
+    <%= link_to "Create Steplist", new_steplist_path, class: 'btn btn-primary btn-xl'  %>
 </div>

@@ -9,19 +9,17 @@
 
 <div class = "steplist-show-infobar">
     <ul>
-      <li>Author: <%= @steplist.id  %></li>
-      <li>Last edited: <%= @steplist.steps.count %></li>
-      <li>Completion: <%= @steplist.id  %></li>
+      <li>Author: <%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></li>
+      <li>Last edited: <%= @steplist.updated_at %></li>
+      <li>Total Steps: <%= @steplist.steps.count  %></li>
     </ul>
 </div>
 
 <div class="container" >
 
   <h1>Steplists#show</h1>
-  <h2>Show page for Steplist title: <%= @steplist.title %></h2>
-  <h3>Steplist id: <%= @steplist.id  %></h3>
-  <h3>Steplist id: <%= @steplist.description  %></h3>
-  <h4>Total Steps for this steplist: <%= @steplist.steps.count %></h4>
+  <h3>Steplist description</h3>
+  <h4><%= @steplist.description  %></h4>
 
   <% if current_user == @steplist.user %>
     <%= link_to "Edit", edit_steplist_path(@steplist), class: 'btn btn-success'  %>

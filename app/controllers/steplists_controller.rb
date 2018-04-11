@@ -4,7 +4,14 @@ class SteplistsController < ApplicationController
 
   def index
     if params[:query].present?
-      @steplists = Steplist.where(title: params[:query])
+      sql_query = " \
+        steplists.title ILIKE :query \
+        OR steplists.description ILIKE :query \
+        OR steps.title ILIKE :query \
+        OR steps.description ILIKE :query \
+      "
+      @steplists = policy_scope(Steplist).joins(:steps).where(sql_query, query: "%#{params[:query]}%")
+
     elsif params[:my_steplists]
       @steplists = policy_scope(Steplist).where(user: current_user)
     else
