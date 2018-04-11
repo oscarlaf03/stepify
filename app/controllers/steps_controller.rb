@@ -4,6 +4,9 @@ class StepsController < ApplicationController
   before_action :set_steplist, only: [:create, :new]
   after_action :count_view, only: [:show]
 
+  def index
+  end
+
   def new
     @step = Step.new
   end

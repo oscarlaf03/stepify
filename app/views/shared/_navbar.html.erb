@@ -3,14 +3,23 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
+  <div class="search-bar">
+    <%= form_tag steplists_path,method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "See the steps for..." %>
+    <% end %>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
 
+
       <!-- Links when logged in -->
-      <%= link_to "My Steplists", steplists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Steplists", steplists_path(my_steplists: true), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
