@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :steplists do
     resources :steps, only: [:create, :new]
   end
-
   resources :steps, only: [:update, :edit, :destroy, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

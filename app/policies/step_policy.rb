@@ -16,4 +16,8 @@ class StepPolicy < ApplicationPolicy
   def destroy?
     record.steplist.user == user
   end
+
+  def show?
+    true
+  end
 end

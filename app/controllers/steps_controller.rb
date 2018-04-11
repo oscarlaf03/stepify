@@ -1,7 +1,8 @@
 class StepsController < ApplicationController
-  before_action :set_step, only: [:edit,:update, :destroy]
+  before_action :set_step, only: [:edit,:update, :destroy, :show]
   before_action :set_user
   before_action :set_steplist, only: [:create, :new]
+  after_action :count_view, only: [:show]
 
   def new
     @step = Step.new
@@ -39,6 +40,9 @@ class StepsController < ApplicationController
     @step.destroy
   end
 
+  def show
+  end
+
 
   private
 
@@ -58,5 +62,26 @@ class StepsController < ApplicationController
 
   def step_params
     params.require(:step).permit(:title,:description,:video,:photo,:document,:photo_cache, :steplist_id, :id)
+  end
+
+  def step_viewed?
+    !Visualization.find_by(step: @step).nil?
+  end
+
+  def step_viewed_by_this_user?
+    !Visualization.find_by(step: @step, user: current_user).nil?
+  end
+
+  def count_view
+    case
+    when step_viewed? == true && step_viewed_by_this_user? == true
+      then view = Visualization.find_by(step: @step, user: current_user)
+      view.views += 1
+      view.save
+    else
+      view = Visualization.new(user: current_user, step: @step)
+      view.views += 1
+      view.save
+    end
   end
 end
