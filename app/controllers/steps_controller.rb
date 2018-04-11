@@ -27,8 +27,11 @@ class StepsController < ApplicationController
   end
 
   def update
-    if @step.update(step_params)
-      redirect_to steplist_path(@step.steplist)
+    respond_to do |format|
+      if @step.update(step_params)
+        format.html { redirect_to steplist_path(@step.steplist) }
+        format.json {}
+      end
     end
   end
 
