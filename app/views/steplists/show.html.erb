@@ -1,6 +1,7 @@
 
 <!-- Steplist header -->
 
+
 <div class="steplist-show-header">
 
       <h2><%= @steplist.title %></h2>
@@ -44,6 +45,15 @@
 </div>
 
 <!-- RENDER LÍNEA DE TIEMPO -->
+
+
+<div class = "steplist-show-infobar">
+    <ul>
+      <li>Author: <%= @steplist.id  %></li>
+      <li>Last edited: <%= @steplist.steps.count %></li>
+      <li>Completion: <%= @steplist.id  %></li>
+    </ul>
+</div>
 
 <div style="background-color: #F2F2F2; ">
 <section id="cd-timeline" class="cd-container">
