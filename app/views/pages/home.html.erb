@@ -1,10 +1,12 @@
+<% @steplists = Steplist.all %>
+
 <div class="container" >
 <h1>Pages#home</h1>
 <h2>Where all Stpelists live</h2>
 <h3>Total steplists: <%= Steplist.count %></h3>
 
 <ul>
-  <% Steplist.all.each do  |steplist|%>
+  <% @steplists.each do  |steplist|%>
     <li>
       <%= link_to "#{steplist.title}",steplist_path(steplist) %>
     </li>

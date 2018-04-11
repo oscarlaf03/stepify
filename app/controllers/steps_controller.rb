@@ -3,6 +3,9 @@ class StepsController < ApplicationController
   before_action :set_user
   before_action :set_steplist, only: [:create, :new]
 
+  def index
+  end
+
   def new
     @step = Step.new
   end

@@ -1,8 +1,8 @@
+<h1>this is view for Steplist# INDEX</h1>
 <div class="container">
-  <% if @my_created_steplists.length != 0  %>
     <h1> Steplists you created</h1>
     <ul>
-      <% @my_created_steplists.each do  |steplist|%>
+      <% @steplists.each do  |steplist|%>
         <li>
           <%= link_to "#{steplist.title}",steplist_path(steplist) %>
         </li>
@@ -11,5 +11,4 @@
     <% else %>
       <h1>Create your first steplist</h1>
       <% link_to "Create Steplist", new_steplist_path, class: 'btn btn-primary btn-xl'  %>
-  <% end %>
 </div>
