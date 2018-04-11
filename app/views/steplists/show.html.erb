@@ -8,6 +8,7 @@
 
  </div>
 
+
 <div class = "steplist-show-infobar">
     <ul>
       <li>Author: <%= @steplist.id  %></li>
@@ -46,6 +47,7 @@
 
 </div>
 
+
 <!-- RENDER LÍNEA DE TIEMPO -->
 
 
@@ -61,5 +63,20 @@
 <section id="cd-timeline" class="cd-container">
  <%= render 'shared/step_card' %>
 </section>
+
+<% @steplist.steps.each do |step|  %>
+
+  <div id="popup<%= step.id %>" class="overlay">
+    <div class="popup">
+      <h2><%= step.title %></h2>
+      <a class="close" href="javascript:history.back()">&times;</a>
+      <div class="content">
+        <%= step.description %>
+      </div>
+    </div>
+  </div>
+
+<% end  %>
+
 
 </div>

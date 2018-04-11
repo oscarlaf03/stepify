@@ -8,6 +8,9 @@ Modules - reusable parts of our design
   width: 70%;
   max-width: 900px;
   margin: 0 auto;
+    a{
+      text-decoration: none;
+    }
   h4, .h4, h5, .h5, h6, .h6 {
     margin-top: 0;
     margin-bottom: 0;
@@ -197,6 +200,10 @@ Main components
   // padding: 1em;
   box-shadow: 0 3px 0 #d7e4ed;
   min-width: 150px;
+   &:hover{
+      background: #F0F0F0;
+      color: white;
+   }
 }
 .cd-timeline-content::after {
   clear: both;
