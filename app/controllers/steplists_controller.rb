@@ -1,5 +1,5 @@
 class SteplistsController < ApplicationController
-  before_action :set_user, only: [:create, :update]
+  before_action :set_user, only: [:create, :update, :dashboard]
   before_action :set_steplist, only: [:edit, :show, :update, :destroy ]
 
   def index

@@ -17,6 +17,10 @@ class SteplistPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def index?
+    true
+  end
+
 end
 
 
