@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :steplists
   has_many :visualizations
   has_many :visualized_steplists, through: :visualizations, source: :steplist
+  validates :first_name, :last_name, presence: true
 
   private
 

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, only: [:dashboard]
+  before_action :authenticate_user!, only: [:dashboard, :new, :edit]
   include Pundit
   after_action :verify_authorized, except: [:index, :show, :home, :dashboard], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:dashboard], unless: :skip_pundit?

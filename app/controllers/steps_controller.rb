@@ -77,12 +77,24 @@ class StepsController < ApplicationController
 
   def count_view
     case
-    when step_viewed? == true && step_viewed_by_this_user? == true
+    when step_viewed_by_this_user? == true && user_signed_in? == true
       then view = Visualization.find_by(step: @step, user: current_user)
       view.views += 1
       view.save
+    when user_signed_in? == false && Visualization.find_by(step: @step, user: nil).nil? == false
+      then view = Visualization.find_by(step: @step, user: nil)
+      view.views += 1
+      view.save
+    when user_signed_in? == false && !Visualization.find_by(step: @step, user: nil).nil? == false
+      then view = Visualization.new(step: @step)
+      view.views += 1
+      view.save
+    when step_viewed_by_this_user? == false && user_signed_in? == true
+      then view = Visualization.new(user: current_user, step: @step)
+      view.views += 1
+      view.save
     else
-      view = Visualization.new(user: current_user, step: @step)
+      view = Visualization.new(step: @step)
       view.views += 1
       view.save
     end

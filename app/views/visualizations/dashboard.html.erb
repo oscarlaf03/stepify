@@ -1,10 +1,52 @@
-<h1>Visualizations#dashboard</h1>
-<p>Find me in app/views/visualizations/dashboard.html.erb</p>
-<ul>
-  <% @all_views.each do |view| %>
-    <li>
-      <%= view.id %>
-    </li>
-  <% end %>
+<div class="wrapper">
+  <div class="container">
+    <h1>Visualizations#dashboard</h1>
+    <h2><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize} Dasbooard"%></h2>
 
-</ul>
+    <table class="table">
+      <tr>
+        <th>
+          Steps visited
+        </th>
+        <td>
+          <%=  @my_views.count %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Steps visualizations
+        </th>
+        <td>
+          <%= @my_views_sum  %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          My created Steplists
+        </th>
+        <td>
+          <%= @my_steplists.count  %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Mi visualized created steplists
+        </th>
+        <td>
+          <%= @my_seen_steplists  %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Total visualizations of my Steplists
+        </th>
+        <td>
+          <%= @views_for_my_steplists  %>
+        </td>
+      </tr>
+
+
+    </table>
+
+  </div>
+</div>

@@ -28,6 +28,7 @@ class SteplistsController < ApplicationController
 
   def create
     @steplist = Steplist.new(steplist_params)
+    @steplist.user = @user
     authorize @steplist
     if @steplist.save
       redirect_to steplist_path(@steplist)
