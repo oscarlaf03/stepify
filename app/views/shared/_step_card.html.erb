@@ -1,19 +1,20 @@
 <% @steplist.steps.each do |step|  %>
-
     <div class="cd-timeline-block">
       <div class="cd-timeline-img cd-seeing">
-        <i class="fa fa-check" id="center-icon"></i>
+      <%= link_to '<i class="fa fa-check" id="center-icon"></i>'.html_safe, step_path(step)%>
       </div> <!-- cd-timeline-img -->
 
+      <a href="#popup<%= step.id %>">
       <div class="cd-timeline-content">
         <div>
 
-        <h4 id="step-title-timeline"><%=step.title %></h4>
-        <i class="fas fa-video" id="content-icon"></i>
+        <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
 
         </div>
       </div> <!-- cd-timeline-content -->
+        </a>
     </div> <!-- cd-timeline-block -->
+
 
 <% end %>
 
