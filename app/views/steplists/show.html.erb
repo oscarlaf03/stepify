@@ -1,37 +1,13 @@
-
 <!-- Steplist header -->
-<div class="steplist-show-header">
-
+<div class="steplist-show-header" style="background-color: white">
+  <div class="container steplist-header-text-container">
   <h2><%= @steplist.title %></h2>
-
+  <h4><%= @steplist.description %></h4>
+</div>
 </div>
 
-
-<div class = "steplist-show-infobar">
-  <ul>
-
-    <li>Last edited: <%= @steplist.updated_at %></li>
-    <li>Total Steps: <%= @steplist.steps.count  %></li>
-  </ul>
-</div>
 
 <div class="container" >
-
-  <h1>Steplists#show</h1>
-  <h3>Steplist description</h3>
-  <h4><%= @steplist.description  %></h4>
-
-
-
-
-  <div class="step-container" >
-    <table class='table' id="steps">
-      <% @steps.each do |step|  %>
-      <%= render 'shared/show_step', step: step  %>
-      <% end %>
-    </table>
-  </div>
-
 
 </div>
 
@@ -44,22 +20,35 @@
     <li>Author: <%= @steplist.id  %></li>
     <li>Last edited: <%= @steplist.steps.count %></li>
     <li>Completion: <%= @steplist.id  %></li>
+    <li>Last edited: <%= @steplist.updated_at %></li>
+    <li>Total Steps: <%= @steplist.steps.count  %></li>
   </ul>
 </div>
 
 
-<!-- RENDER LÍNEA DE TIEMPO -->
+
+
+
 <div style="background-color: #F5F7FB;">
 
-
+  <!-- RENDER LÍNEA DE TIEMPO -->
   <section id="cd-timeline" class="cd-container">
     <% @steplist.steps.order(created_at: :asc).each do |step|  %>
     <%= render 'shared/step_card', step: step %>
     <% end %>
   </section>
 
-<!-- STEP POPUPS  -->
 
+  <!-- NEW STEP FORM   -->
+  <div class="container" style="width: 300px">
+    <% if current_user == @steplist.user %>
+    <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
+    <% end %>
+  </div>
+
+</div>
+
+  <!-- STEP POPUPS  -->
   <% @steplist.steps.each do |step|  %>
   <div id="popup<%= step.id %>" class="overlay">
     <div class="popup">
@@ -72,12 +61,18 @@
   </div>
   <% end  %>
 
-<!-- NEW STEP FORM   -->
-  <div class="container" style="width: 300px">
-    <% if current_user == @steplist.user %>
-    <h4>Add a Step to your steplist</h4>
-    <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
-    <% end %>
-  </div>
 
+
+
+<div class="steplist-show-header" style="background-color: white">
+</div>
+<!-- STEPS TEST TABLE -->
+<div class="container">
+  <div class="step-container" >
+    <table class='table' id="steps">
+      <% @steps.each do |step|  %>
+      <%= render 'shared/show_step', step: step  %>
+      <% end %>
+    </table>
+  </div>
 </div>
