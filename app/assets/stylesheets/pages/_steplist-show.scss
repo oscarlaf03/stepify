@@ -1,7 +1,7 @@
 
 
 .steplist-show-header{
-  background-color: $light-gray;
+  background-color: white;
   // display: flex;
   text-align: center;
   min-height: 150px;
@@ -24,8 +24,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $stepify-light-gray;
-  color: $gray;
+  background-color: $stepify-dark-gray;
+  color: white;
   box-shadow: 0 3px 0 #d7e4ed;
   ul{
     margin: 10px;

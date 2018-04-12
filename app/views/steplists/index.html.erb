@@ -2,7 +2,9 @@
 <div class="container">
     <h1> root Home as Steplists#Index</h1>
 
-      <% @steplists.each do  |steplist|%>
+
+<% @steplists.each do  |steplist|%>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <div class="steplist-card-block" >
       <div class="steplist-card" style="width: 18rem;">
           <div class="steplist-card-body">
@@ -10,6 +12,7 @@
           </div>
       </div>
       </div>
+    </div>
       <% end %>
     <%= link_to "Create Steplist", new_steplist_path, class: 'btn btn-primary btn-xl'  %>
   </div>
