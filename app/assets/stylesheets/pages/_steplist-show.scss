@@ -2,13 +2,22 @@
 
 .steplist-show-header{
   background-color: $light-gray;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  text-align: center;
   min-height: 150px;
   h2{
-    margin-top: 0px;
+    margin: 30px;
     font-size: 50px;
+    font-weight: bond;
   }
+  h4{
+    margin: 30px;
+    font-size: 18px;
+  }
+}
+
+.steplist-header-text-container{
+  max-width: 450px;
 }
 
 .steplist-show-infobar{

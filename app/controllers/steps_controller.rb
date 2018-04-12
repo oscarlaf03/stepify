@@ -40,7 +40,12 @@ class StepsController < ApplicationController
   end
 
   def destroy
+    steplist = @step.steplist
     @step.destroy
+      respond_to do |format|
+        format.html { redirect_to steplist_path(steplist) }
+        format.json {}
+      end
   end
 
   def show
