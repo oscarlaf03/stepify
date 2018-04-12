@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20180410210809) do
   end
 
   create_table "visualizations", force: :cascade do |t|
-    t.integer "last_step"
+    t.integer "last_step" #Es necesario?
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
