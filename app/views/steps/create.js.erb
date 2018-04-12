@@ -10,6 +10,11 @@ function addStep(stepHTML) {
   steps.insertAdjacentHTML('beforeend', stepHTML);
 }
 
+function addStepCard(stepHTML) {
+  const steps = document.getElementById('cd-timeline');
+  steps.insertAdjacentHTML('beforeend', stepHTML);
+}
+
 <% if @step.errors.any? %>
   console.log('aqui if errors true');
   refreshForm('<%= j render "shared/form_step", steplist: @steplist, step: @step %>');
@@ -19,6 +24,7 @@ function addStep(stepHTML) {
 <% else %>
   console.log('aqui if errors false')
   addStep('<%= j render "shared/show_step", step: @step, steplist: @steplist %>');
+  addStepCard('<%= j render "shared/step_card", step: @step, steplist: @steplist %>');
   refreshForm('<%= j render "shared/form_step", steplist: @steplist, step: Step.new %>');
   console.log('final do errors false');
 

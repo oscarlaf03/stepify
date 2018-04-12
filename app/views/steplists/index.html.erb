@@ -1,11 +1,16 @@
+<div style="background-color: #F5F7FB; ">
 <div class="container">
     <h1> root Home as Steplists#Index</h1>
-    <ul>
+
       <% @steplists.each do  |steplist|%>
-        <li>
-          <%= link_to "#{steplist.title}",steplist_path(steplist) %>
-        </li>
+    <div class="steplist-card-block" >
+      <div class="steplist-card" style="width: 18rem;">
+          <div class="steplist-card-body">
+          <h5 class="steplist-card-title"> <%= link_to "#{steplist.title}",steplist_path(steplist) %></h5>
+          </div>
+      </div>
+      </div>
       <% end %>
-    </ul>
     <%= link_to "Create Steplist", new_steplist_path, class: 'btn btn-primary btn-xl'  %>
+  </div>
 </div>
