@@ -1,20 +1,31 @@
-<% @steplist.steps.each do |step|  %>
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img cd-seeing">
-      <%= link_to '<i class="fa fa-check" id="center-icon"></i>'.html_safe, step_path(step)%>
-      </div> <!-- cd-timeline-img -->
 
-      <a href="#popup<%= step.id %>">
-      <div class="cd-timeline-content">
-        <div>
 
+
+<!-- CENTER ICON AND LINE  -->
+<div class="cd-timeline-block">
+  <div class="cd-timeline-img cd-seeing">
+    <%= link_to '<i class="fa fa-check" id="center-icon"></i>'.html_safe %>
+  </div>
+
+  <!-- STEP BLOCK CONTENT -->
+  <a href="#popup<%= step.id %>">
+    <div class="cd-timeline-content">
+      <div>
         <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
-
-        </div>
-      </div> <!-- cd-timeline-content -->
-        </a>
-    </div> <!-- cd-timeline-block -->
+      </div>
 
 
-<% end %>
+  </a>
+  <!-- DATE AND EDIT ICONS -->
+    <% if current_user == @steplist.user %>
+      <span class="cd-date">
 
+              <%= link_to '<i class="fa fa-pencil" id="step-edit-icon"></i>'.html_safe, edit_steplist_path(@steplist) %>
+              <%= link_to '<i class="fa fa-trash" id="step-delete-icon"></i>'.html_safe, steplist_path(@steplist),method: :delete,data: {confirm: "No going Back"} %>
+        </span>
+      <% end %>
+    </div>
+
+
+
+</div>

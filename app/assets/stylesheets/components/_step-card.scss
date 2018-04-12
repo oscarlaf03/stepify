@@ -1,8 +1,8 @@
 #step-title-timeline{
   font-size: 18px;
-  font-weight: bold;
+  font-weight: regular;
   padding: 10px;
-  color: $stepify-gray;
+  color: $stepify-dark-gray;
 }
 
 .fa{
@@ -25,4 +25,16 @@
   color: white;
 
   }
+}
+
+#step-delete-icon{
+  color: $red;
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+#step-edit-icon{
+  color: $blue;
+  font-size: 21px;
+  margin-top: -10px;
 }

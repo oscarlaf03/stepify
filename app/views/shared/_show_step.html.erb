@@ -3,15 +3,19 @@
   <th>
     <%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %>
   </th>
+
   <td>
     <%= current_user == @steplist.user ? best_in_place(step, :description, as: :textarea) : step.description  %>
   </td>
+
   <td>
     <%= link_to '<i class="fa fa-eye"></i>'.html_safe, step_path(step), class: 'btn btn-primary btn-xs'  %>
+
     <% if current_user == @steplist.user %>
       <%= link_to '<i class="fa fa-trash fa-sm"></i>'.html_safe, step_path(step), class: 'btn btn-danger btn-xs', method: :delete,remote: true, data: {confirm: "No going back"}   %>
       <%= link_to '<i class="fa fa-edit fa-xs"></i>'.html_safe, edit_step_path(step), class: 'btn btn-primary btn-xs'  %>
       <% end %>
+
   </td>
 </tr>
 
