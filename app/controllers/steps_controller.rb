@@ -108,15 +108,4 @@ class StepsController < ApplicationController
     end
   end
 
-  def store_photos
-      photos = params[:step][:photos]
-      photos.each{|photo| @step.photos.create(image: photo)} if photos
-    end
-
-    def delete_photos
-      @step.photos.each do |photo|
-        photo.destroy if params[photo.id.to_s] == "delete"
-      end
-    end
-
 end
