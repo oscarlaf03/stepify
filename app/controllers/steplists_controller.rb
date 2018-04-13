@@ -52,6 +52,7 @@ class SteplistsController < ApplicationController
 
   def show
     @step = Step.new
+    @photos = @step.photos.build
     @steps = @steplist.steps.order(:created_at)
   end
 
