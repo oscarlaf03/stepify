@@ -5,8 +5,8 @@ array_users = []
 7.times do
   a_user = User.new
   faker_name = Faker::StarWars.character.split(' ')
-  a_user.first_name = faker_name[0]
-  a_user.last_name = faker_name[1]
+  a_user.first_name = "#{faker_name[0]} jr"
+  a_user.last_name = "#{faker_name[1]} da Silva"
   a_user.email = Faker::Internet.safe_email("#{a_user.first_name}")
   a_user.password = '123123'
   a_user.save
