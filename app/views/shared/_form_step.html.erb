@@ -1,8 +1,9 @@
 
 <h4>Add a Step to your steplist</h4>
-<%= simple_form_for([steplist, step], remote: true ) do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.submit value: 'Add Step', class: 'btn btn-success btn-md' %>
+<%= simple_form_for([steplist, step], :html => { :multipart => true }, remote: true ) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :photos, as: :file,label: 'Add Photos to your step',:input_html => {  :multiple => true }, name: "step[step_attributes][][photos]" %>
+  <%= f.submit value: 'Add Step', class: 'btn btn-success btn-md' %>
 <% end %>
 

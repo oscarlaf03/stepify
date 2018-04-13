@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'best_in_place', '~> 3.0.1'
 
 
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.7'
