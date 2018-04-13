@@ -1,0 +1,12 @@
+<!-- STEPS TEST TABLE -->
+<% if current_user.email == 'oscar@admin.com' %>
+  <div class="container">
+    <div class="step-container" >
+      <table class='table' id="steps">
+        <% @steps.each do |step|  %>
+        <%= render 'shared/show_step', step: step  %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+ <% end %>
