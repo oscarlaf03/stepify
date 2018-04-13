@@ -1,8 +1,0 @@
-
-<h4>Add a Step to your steplist</h4>
-<%= simple_form_for([steplist, step], remote: true ) do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.submit value: 'Add Step', class: 'btn btn-success btn-md' %>
-<% end %>
-

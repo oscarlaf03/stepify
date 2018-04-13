@@ -17,8 +17,7 @@
 
 <div class = "steplist-show-infobar">
   <ul>
-    <li>Author: <%= @steplist.id  %></li>
-    <li>Last edited: <%= @steplist.steps.count %></li>
+    <li>Author: <%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></li>
     <li>Completion: <%= @steplist.id  %></li>
     <li>Last edited: <%= @steplist.updated_at %></li>
     <li>Total Steps: <%= @steplist.steps.count  %></li>
@@ -49,10 +48,11 @@
   <% @steplist.steps.each do |step|  %>
   <div id="popup<%= step.id %>" class="overlay">
     <div class="popup">
-      <h2><%= step.title %></h2>
+      <h2 class="step-popup-title"><%= step.title %></h2>
       <a class="close" href="javascript:history.back()">&times;</a>
       <div class="content">
-        <%= step.description %>
+        <%= render 'shared/show_of_step', step: step %>
+
       </div>
     </div>
   </div>
@@ -64,12 +64,14 @@
 <div class="steplist-show-header" style="background-color: white">
 </div>
 <!-- STEPS TEST TABLE -->
-<div class="container">
-  <div class="step-container" >
-    <table class='table' id="steps">
-      <% @steps.each do |step|  %>
-      <%= render 'shared/show_step', step: step  %>
-      <% end %>
-    </table>
+<% if current_user.email=='oscar@admin.com' %>
+  <div class="container">
+    <div class="step-container" >
+      <table class='table' id="steps">
+        <% @steps.each do |step|  %>
+        <%= render 'shared/show_step', step: step  %>
+        <% end %>
+      </table>
+    </div>
   </div>
-</div>
+  <% end %>
