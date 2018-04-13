@@ -1,19 +1,24 @@
 <div style="background-color: #F5F7FB; ">
-<div class="container">
-    <h1> root Home as Steplists#Index</h1>
 
+<div class="steplist-show-header" style="background-color: white">
+  <div class="container steplist-header-text-container">
+  <h2>Browse all steplists</h2>
+</div>
+</div>
+
+<div class="container steplist-cards-background" style="padding-top: 40px">
 
 <% @steplists.each do  |steplist|%>
 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <div class="steplist-card-block" >
-      <div class="steplist-card" style="width: 18rem;">
+      <div class="steplist-card">
           <div class="steplist-card-body">
-          <h5 class="steplist-card-title"> <%= link_to "#{steplist.title}",steplist_path(steplist) %></h5>
+          <p class="author-name"> <strong>Author:</strong> <%= "#{steplist.user.first_name.capitalize} #{steplist.user.last_name.capitalize}" %></p>
+          <h5 class="steplist-card-title"> <%= link_to "#{steplist.title.truncate(50)}",steplist_path(steplist) %></h5>
           </div>
       </div>
       </div>
     </div>
       <% end %>
-    <%= link_to "Create Steplist", new_steplist_path, class: 'btn btn-primary btn-xl'  %>
   </div>
 </div>

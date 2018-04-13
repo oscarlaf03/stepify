@@ -5,7 +5,8 @@
   border-color: $stepify-dark-gray;
   padding: 10px;
   margin: 15px;
-  height: 120px;
+  height: 150px;
+  border-top: 5px solid $stepify-salmon;
   text-align: center;
   // padding: 1em;
   box-shadow: 0 3px 0 #d7e4ed;
@@ -21,4 +22,17 @@
    }
 }
 
+.author-name{
+color: $stepify-salmon;
+font-weight: light;
+}
+
+.steplist-title-card{
+  color: $stepify-dark-gray;
+font-weight: bolder;
+}
+
+.steplist-cards-background{
+  height: 100hv !important;
+}
 
