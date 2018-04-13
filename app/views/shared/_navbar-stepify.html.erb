@@ -1,0 +1,46 @@
+<div id='cssmenu'>
+  <ul>
+    <li class='last' id="stepify-logo"><%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo4.png"%>
+      <% end %>
+    </li>
+
+    <!-- Stepify if logged in ///// -->
+    <% if user_signed_in? %>
+    <!-- Links when logged in////////// -->
+
+    <li class='last'><%= link_to "My Steplists", steplists_path(my_steplists: true), class: "navbar-wagon-item navbar-wagon-link" %>
+    </li>
+
+    <li class='last'><%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </li>
+    <!-- Login link (when logged out) -->
+    <% else %>
+    <li class="last">
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </li>
+
+    <% end %>
+
+    <li class='last'><%= link_to "All Steps", steplists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </li>
+
+    <li class="last"><%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </li>
+
+    <li class='first'>
+      <div class="search-bar">
+        <%= form_tag steplists_path,method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control", placeholder: 'See steps for...', style: 'background-color: #565252;
+          color: rgba(0, 0, 0, 0.075);
+          border-style: none;
+          color: white;' %>
+        </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+

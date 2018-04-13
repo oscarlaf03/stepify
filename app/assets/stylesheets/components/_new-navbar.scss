@@ -8,7 +8,7 @@
   padding: 0;
   line-height: 1;
   display: block;
-  zoom: 1;
+
 }
 #cssmenu ul:after {
   content: " ";
@@ -17,6 +17,21 @@
   height: 0;
   clear: both;
   visibility: hidden;
+}
+
+#stepify-logo{
+  background-color: $stepify-dark-gray;
+}
+
+#stepify-right-navbar{
+  float: right;
+}
+
+.stepify-avatar{
+    height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin-left: 20px;
 }
 #cssmenu ul li {
   display: inline-block;
@@ -44,6 +59,7 @@
   -ms-transition: color .25s;
   -o-transition: color .25s;
   transition: color .25s;
+
 }
 #cssmenu ul li a:hover {
   color: #333333;
@@ -54,7 +70,7 @@
 #cssmenu ul li a:after {
   content: "";
   display: block;
-  position: absolute;
+
   right: -3px;
   top: 19px;
   height: 6px;
@@ -93,6 +109,7 @@
 }
 #cssmenu.align-right li:first-child a:after {
   display: none;
+  float: left;
 }
 @media screen and (max-width: 768px) {
   #cssmenu ul li {
@@ -117,3 +134,12 @@
     display: none;
   }
 }
+
+.nav-bar-search{
+    background-color: rgba(0, 0, 0, 0.075);
+    color: rgba(0, 0, 0, 0.075);
+    border-style: none;
+    color: white;
+}
+
+
