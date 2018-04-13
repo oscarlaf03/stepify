@@ -26,6 +26,7 @@ miguel.first_name = 'miguel'
 miguel.last_name = 'teste'
 miguel.email = 'miguel@teste.com'
 miguel.save
+puts 'creating root power users'
 
 array_users << oscar
 array_users << miguel
@@ -39,12 +40,14 @@ array_steplists = []
 puts 'creating steplists'
 
 array_users.each do |user|
-  a_steplist = Steplist.new
-  a_steplist.user = user
-  a_steplist.title = Faker::Hipster.sentence(3)
-  a_steplist.description = Faker::Hipster.paragraph
-  a_steplist.save
-  array_steplists << a_steplist
+  rand(3..5).times do
+    a_steplist = Steplist.new
+    a_steplist.user = user
+    a_steplist.title = Faker::Hipster.sentence(3)
+    a_steplist.description = Faker::Hipster.paragraph
+    a_steplist.save
+    array_steplists << a_steplist
+  end
 end
 
 puts "#{Steplist.count} steplists creeated"
@@ -63,9 +66,5 @@ array_steplists.each do |steplist|
 end
 
 puts "#{Step.count} steps created"
-
-puts 'creating root power users'
-
-
 
 puts 'All tasks finalized'
