@@ -3,7 +3,6 @@ class StepsController < ApplicationController
   before_action :set_user
   before_action :set_steplist, only: [:create, :new]
   after_action :count_view, only: [:show]
-
   def index
   end
 
@@ -15,17 +14,21 @@ class StepsController < ApplicationController
     @step = Step.new(step_params)
     @step.steplist = @steplist
     if @step.save
+      params[:step][:photos].each do |photo|
+        @photo = @step.photos.create!(image: photo)
+      end
       respond_to do |format|
-        format.html { redirect_to steplist_path(@steplist) }
+        format.html { redirect_to steplist_path(@steplist), notice: 'Step successfully added.' }
         format.js
       end
     else
       respond_to do |format|
         format.html { render 'shared/form_step', step: @step, steplist: @steplist }
-        format.js
+        format.js { render json: @step.errors, status: :unprocessable_entity }
       end
     end
   end
+
 
   def edit
   end
@@ -69,7 +72,7 @@ class StepsController < ApplicationController
   end
 
   def step_params
-    params.require(:step).permit(:title,:description,:video,:photo,:document,:photo_cache, :steplist_id, :id)
+    params.require(:step).permit(:title,:description,:video, :document)
   end
 
   def step_viewed?
@@ -104,4 +107,16 @@ class StepsController < ApplicationController
       view.save
     end
   end
+
+  def store_photos
+      photos = params[:step][:photos]
+      photos.each{|photo| @step.photos.create(image: photo)} if photos
+    end
+
+    def delete_photos
+      @step.photos.each do |photo|
+        photo.destroy if params[photo.id.to_s] == "delete"
+      end
+    end
+
 end
