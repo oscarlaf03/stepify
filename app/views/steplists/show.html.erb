@@ -45,14 +45,20 @@
 </div>
 
   <!-- STEP POPUPS  -->
-  <% @steplist.steps.each do |step|  %>
+  <% @steplist.steps.each_with_index do |step, index|  %>
   <div id="popup<%= step.id %>" class="overlay">
     <div class="popup">
       <h2 class="step-popup-title"><%= step.title %></h2>
       <a class="close" href="javascript:history.back()">&times;</a>
       <div class="content">
         <%= render 'shared/show_of_step', step: step %>
-
+        <% unless index == 0 %>
+          <a href="#popup<%= step.steplist.steps[index - 1].id %>"> Back</a>
+        <% end %>
+        <% unless index == step.steplist.steps.size-1 %>
+          <a href="#popup<%= step.steplist.steps[index + 1].id %>"> NEXT
+         </a>
+        <% end %>
       </div>
     </div>
   </div>
