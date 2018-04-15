@@ -27,7 +27,6 @@ class SteplistsController < ApplicationController
   end
 
   def create
-    raise
     @steplist = Steplist.new(steplist_params)
     @steplist.user = @user
     authorize @steplist
