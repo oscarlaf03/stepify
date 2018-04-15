@@ -5,9 +5,9 @@
   <h2>Browse all steplists</h2>
 </div>
 </div>
+<%= link_to "Add new Organization", new_organization_path, class: 'btn btn-primary btn-lg'  %>
 
 <div class="container steplist-cards-background" style="padding-top: 40px">
-
 <% @steplists.each do  |steplist|%>
 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <div class="steplist-card-block" >
