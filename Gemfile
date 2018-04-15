@@ -14,8 +14,6 @@ gem 'pundit'
 gem 'jquery-rails'
 gem 'best_in_place', '~> 3.0.1'
 
-
-
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.7'
@@ -24,6 +22,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
+
+
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
