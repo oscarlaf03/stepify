@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:edit, :show, :destroy]
+  before_action :set_organization, only: [:edit, :update, :show, :destroy]
   def new
     @organization = Organization.new
     authorize @organization
@@ -9,6 +9,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     authorize @organization
     if @organization.save
+      current_user.organization << @organization
       redirect_to organization_path(@organization)
     else
       render :new
@@ -19,10 +20,13 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    @organization.update(organization_params)
+   if  @organization.update(organization_params)
+      redirect_to organization_path(@organization)
+    end
   end
 
   def show
+    @org_steplists = policy_scope(Steplist).where(organization: @organization)
   end
 
   def index

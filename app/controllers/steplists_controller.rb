@@ -27,6 +27,7 @@ class SteplistsController < ApplicationController
   end
 
   def create
+    raise
     @steplist = Steplist.new(steplist_params)
     @steplist.user = @user
     authorize @steplist
@@ -70,7 +71,8 @@ class SteplistsController < ApplicationController
   end
 
   def steplist_params
-    params.require(:steplist).permit(:title, :description, :steplist_id, :id)
+    params.require(:steplist).permit(:title, :description, :organization)
+    authorize :organization
   end
 
   def set_user
