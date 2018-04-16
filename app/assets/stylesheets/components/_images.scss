@@ -10,8 +10,8 @@
 
 }
 .image-popup-column {
-  flex: 25%;
-  max-width: 25%;
+  flex: 100%;
+  max-width: 100%;
   padding: 0 4px;
 }
 
@@ -49,8 +49,8 @@
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
 .image-popup-column {
-    flex: 50%;
-    max-width: 50%;
+    flex: 100%;
+    max-width: 100%;
   }
 }
 

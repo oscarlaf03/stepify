@@ -36,6 +36,13 @@ word-wrap: break-word;
 margin-right: 10px;
 }
 
+.image-popup-column{
+  max-width: 100%;
+  .img{
+    max-width: 100%;
+  }
+}
+
 div{
   word-wrap: break-word;
 }

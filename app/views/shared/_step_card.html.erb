@@ -1,13 +1,13 @@
 
 <!-- CENTER ICON AND LINE  -->
 <div class="cd-timeline-block">
-  <div class="cd-timeline-img cd-seeing fadeIn ">
+  <div class="cd-timeline-img cd-seeing bounceIn ">
     <%= link_to '<i class="fa fa-check" id="center-icon"></i>'.html_safe,step_path(step) %>
   </div>
 
   <!-- STEP BLOCK CONTENT -->
   <div data-toggle="modal" data-target="#Modalpopup<%= step.id %>">
-    <div class="cd-timeline-content slideInLeft">
+    <div class="cd-timeline-content">
       <div class="row">
         <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
       </div>
@@ -25,3 +25,6 @@
     </div>
   </div>
 </div>
+
+
+
