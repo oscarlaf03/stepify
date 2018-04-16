@@ -2,3 +2,11 @@
   text-align: right;
   border-radius: 10px;
 }
+
+
+.steplist-card-body .pinned i {
+  opacity: 1;
+}
+.steplist-card-body i {
+  opacity: 0.5;
+}

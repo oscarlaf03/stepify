@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416152118) do
+ActiveRecord::Schema.define(version: 20180416180045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20180416152118) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "step_id"
+  end
+
+  create_table "pins", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "steplist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["steplist_id"], name: "index_pins_on_steplist_id"
+    t.index ["user_id"], name: "index_pins_on_user_id"
   end
 
   create_table "steplists", force: :cascade do |t|
@@ -122,6 +131,8 @@ ActiveRecord::Schema.define(version: 20180416152118) do
 
   add_foreign_key "organization_users", "organizations"
   add_foreign_key "organization_users", "users"
+  add_foreign_key "pins", "steplists"
+  add_foreign_key "pins", "users"
   add_foreign_key "steplists", "users"
   add_foreign_key "steps", "steplists"
   add_foreign_key "visualizations", "steps"
