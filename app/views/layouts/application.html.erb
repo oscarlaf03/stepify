@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
     <title>Stepify - Every Step counts</title>
     <meta name="description" content="Create and find simple easy-to-follow steplists to acomplish all types and tasks" >
     <meta property="og:title" content="Stepify, every step counts">
@@ -21,9 +21,14 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
+  <div class="content-space">
       <%= yield %>
+  </div>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
+  <footer>
+    <%= render 'shared/footer'  %>
+  </footer>
 </html>

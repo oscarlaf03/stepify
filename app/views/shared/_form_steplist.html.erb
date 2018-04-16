@@ -1,5 +1,5 @@
 <%= simple_form_for @steplist do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :title, label: 'Title for your Steplist', placeholder: "What is the outcome of this steplist?" %>
+  <%= f.input :description ,label: "Steplist description", placeholder: 'Why is this steplist important?'%>
   <%= f.submit %>
 <% end %>
