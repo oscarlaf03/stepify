@@ -9,7 +9,7 @@
 // General style
 $font-family-sans-serif:  'Source Sans Pro', sans-serif;;
 $headings-font-family:    'Source Sans Pro', sans-serif;;
-$body-bg:                 #d3d1d1;
+$body-bg:                 white;
 $font-size-base: 18px;
 
 // Colors
@@ -26,3 +26,12 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
+.modal-header{
+word-wrap: break-word;
+margin-right: 10px;
+}
+
+.modal-body{
+word-wrap: break-word;
+margin-right: 10px;
+}
