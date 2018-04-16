@@ -1,7 +1,20 @@
 <div class="container">
+  <h1>Edit your step information</h1>
   <%= simple_form_for([@steplist, @step] ) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.submit %>
+    <%= f.input :title , label: 'Title for this step', placeholder: 'Objective of this  step'%>
+    <%= f.input :description, label: 'Instructions and Details', placeholder: 'How do I know I finished this step succesfully?' %>
+    <%= f.input :photos, as: :file,label: 'Add Photos to your step',:input_html => {  :multiple => true }, name: "step[step_attributes][][photos]" %>
+      <% if @step.photos.any? %>
+        <div class="image-container">
+          <% @step.photos.each do |photo| %>
+            <div class="image-card">
+              <%= cl_image_tag photo.image, height: 200, width: 300, crop: :fill, class: 'popup-image-item' %>
+
+            </div>
+
+          <% end %>
+        </div>
+      <% end %>
+    <%= f.submit value: 'Update Step', class: 'btn btn-success btn-md' %>
   <% end %>
 </div>
