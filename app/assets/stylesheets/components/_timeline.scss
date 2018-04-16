@@ -43,7 +43,7 @@ Main components
   position: absolute;
   top: 0;
   left: 18px;
-  height: 100%;
+  height: 98%;
   width: 4px;
   background: #d7e4ed;
 }
@@ -109,6 +109,16 @@ Main components
 }
 .cd-timeline-img.cd-done {
   background: $green;
+}
+.cd-timeline-img.cd-add {
+  background: $green;
+  .fa{
+    margin-left:2px !important;
+  }
+}
+
+.cd-timeline-img.cd-end {
+  background: gray;
 }
 .cd-timeline-img.cd-seeing {
   background: $stepify-salmon;
