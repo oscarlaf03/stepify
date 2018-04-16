@@ -10,7 +10,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     authorize @organization
     if @organization.save
-      org = OrganizationUser.new(user: @user, organization: @organization)
+      org = OrganizationUser.new(user: @user, organization: @organization, admin: true)
       org.save
 
       redirect_to organization_path(@organization)
@@ -50,7 +50,5 @@ class OrganizationsController < ApplicationController
   def set_user
     @user = current_user
   end
-
-
 
 end

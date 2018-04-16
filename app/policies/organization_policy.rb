@@ -14,11 +14,11 @@ class OrganizationPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.users.include?(user) && record.users.find(user.id).admin?
   end
 
   def destroy?
-    true
+    record.users.include?(user) && record.users.find(user.id).admin?
   end
 
 end

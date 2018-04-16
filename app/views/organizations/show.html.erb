@@ -24,8 +24,14 @@
       <h1><%= @organization.company_name  %></h1>
     </div>
     <%= link_to 'Back to organizations', organizations_path, class: 'btn btn-primary btn-lg'%>
-    <%= link_to 'Edit info', edit_organization_path(@organization), class: 'btn btn-primary btn-lg'%>
-    <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-lg'  %>
+
+    <% if @organization.users.include?(current_user) && @organzation.users.find(current_user.id).admin? %>
+      <%= link_to 'Edit Companyinfo', edit_organization_path(@organization), class: 'btn btn-primary btn-lg'%>
+    <% end %>
+
+    <% if @organization.users.include?(current_user) %>
+      <%= link_to "Add Step to this organization", new_steplist_path, class: 'btn btn-success btn-lg'  %>
+    <% end %>
 
     <% if @org_steplists.any? %>
       <h2>Steplists for: <%= @organization.company_name %></h2>
