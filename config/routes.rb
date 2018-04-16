@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'visualizations/dashboard', to: 'visualizations#dashboard', as: 'dashboard'
   get 'pages/test', to: 'pages#test', as: 'test'
   resources :pins , only: [:index]
+  get 'my_pins', to: 'pages#my_pins'
 end

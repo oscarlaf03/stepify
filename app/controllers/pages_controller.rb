@@ -6,4 +6,9 @@ class PagesController < ApplicationController
 
   def test
   end
+
+  def my_pins
+    @my_pins = Pin.where(user: current_user)
+  end
+
 end
