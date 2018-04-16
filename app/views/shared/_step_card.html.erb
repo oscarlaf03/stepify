@@ -7,7 +7,7 @@
 
   <!-- STEP BLOCK CONTENT -->
   <div data-toggle="modal" data-target="#Modalpopup<%= step.id %>">
-    <div class="cd-timeline-content slideInRight">
+    <div class="cd-timeline-content slideInLeft">
       <div class="row">
         <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
       </div>
