@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:edit, :update, :show, :destroy]
+  before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   def new
     @organization = Organization.new
     authorize @organization
@@ -9,7 +10,9 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     authorize @organization
     if @organization.save
-      current_user.organization << @organization
+      org = OrganizationUser.new(user: @user, organization: @organization)
+      org.save
+
       redirect_to organization_path(@organization)
     else
       render :new
@@ -43,5 +46,11 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     authorize @organization
   end
+
+  def set_user
+    @user = current_user
+  end
+
+
 
 end

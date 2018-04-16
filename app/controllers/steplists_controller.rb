@@ -30,6 +30,9 @@ class SteplistsController < ApplicationController
     @steplist = Steplist.new(steplist_params)
     @steplist.user = @user
     authorize @steplist
+    if params[:steplist][:organization].present?
+      @steplist.organization = Organization.find(params[:steplist][:organization])
+    end
     if @steplist.save
       redirect_to steplist_path(@steplist)
     else
@@ -70,8 +73,7 @@ class SteplistsController < ApplicationController
   end
 
   def steplist_params
-    params.require(:steplist).permit(:title, :description, :organization)
-    authorize :organization
+    params.require(:steplist).permit(:title, :description)
   end
 
   def set_user
