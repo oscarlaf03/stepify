@@ -6,20 +6,21 @@
   </div>
 
   <!-- STEP BLOCK CONTENT -->
-  <a href="#popup<%= step.id %>">
+  <div data-toggle="modal" data-target="#Modalpopup<%= step.id %>">
     <div class="cd-timeline-content">
       <div>
-        <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
-      </div>
-
-    </a>
+        <h4 id="step-title-timeline">
+          <%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %>
+          </h4>
+    </div>
+  </div>
     <!-- DATE AND EDIT ICONS -->
     <% if current_user == @steplist.user %>
-    <span class="cd-date">
+      <span class="cd-date">
 
-      <%= link_to '<i class="fa fa-pencil" id="step-edit-icon"></i>'.html_safe, edit_step_path(step) %>
-      <%= link_to '<i class="fa fa-trash" id="step-delete-icon"></i>'.html_safe, step_path(step), method: :delete,data: {confirm: "No going Back"} %>
-    </span>
+        <%= link_to '<i class="fa fa-pencil" id="step-edit-icon"></i>'.html_safe, edit_step_path(step) %>
+        <%= link_to '<i class="fa fa-trash" id="step-delete-icon"></i>'.html_safe, step_path(step), method: :delete,data: {confirm: "No going Back"} %>
+      </span>
     <% end %>
   </div>
 </div>

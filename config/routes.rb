@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root to: 'steplists#index'
   resources :steps, only: [:update, :edit, :destroy, :show]
   get 'visualizations/dashboard', to: 'visualizations#dashboard', as: 'dashboard'
+  get 'pages/test', to: 'pages#test', as: 'test'
 end
