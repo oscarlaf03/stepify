@@ -1,9 +1,11 @@
 <%= simple_form_for @steplist do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :title, label: 'Title for your Steplist', placeholder: "What is the outcome of this steplist?" %>
+  <%= f.input :description ,label: "Steplist description", placeholder: 'Why is this steplist important?'%>
+
   <% if current_user.organization.present? %>
 
     <%= f.input :organization, label: 'Add this steplist to one of you organizations', collection: current_user.organization  %>
   <% end %>
+
   <%= f.submit %>
 <% end %>

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :steps, only: [:update, :edit, :destroy, :show]
   resources :organizations
   get 'visualizations/dashboard', to: 'visualizations#dashboard', as: 'dashboard'
+  get 'pages/test', to: 'pages#test', as: 'test'
 end
