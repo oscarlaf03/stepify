@@ -25,7 +25,7 @@
     </div>
     <%= link_to 'Back to organizations', organizations_path, class: 'btn btn-primary btn-lg'%>
 
-    <% if @organization.users.include?(current_user) && @organzation.users.find(current_user.id).admin? %>
+    <% if @organization.users.include?(current_user) && OrganizationUser.find_by(organization: @organization, user: @user).admin? %>
       <%= link_to 'Edit Companyinfo', edit_organization_path(@organization), class: 'btn btn-primary btn-lg'%>
     <% end %>
 
