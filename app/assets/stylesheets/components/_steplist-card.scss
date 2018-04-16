@@ -12,9 +12,9 @@
   box-shadow: 0 3px 0 #d7e4ed;
   min-width: 150px;
   max-width: 300px;
+      color: $stepify-dark-gray;
   &:hover{
     background: #F0F0F0;
-    color: white;
   }
   a{
     text-decoration: none;

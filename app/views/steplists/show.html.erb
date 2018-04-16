@@ -20,7 +20,7 @@
   <ul>
     <li>Author: <%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></li>
     <li>Completion: <%= @steplist.id  %></li>
-    <li>Last edited: <%= @steplist.updated_at %></li>
+    <li>Last edited: <%= @steplist.updated_at.strftime("%d/%m/%Y") %></li>
     <li>Total Steps: <%= @steplist.steps.count  %></li>
   </ul>
 </div>
@@ -54,8 +54,6 @@
             <h2 class="modal-title" ><%= step.title %></h2>
           </div>
           <div class="modal-body">
-
-
             <%= render 'shared/show_of_step', step: step %>
             <div class="modal-footer">
               <% unless index == 0 %>
