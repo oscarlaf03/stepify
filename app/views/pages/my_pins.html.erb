@@ -1,0 +1,14 @@
+<div style="background-color: #F5F7FB; ">
+  <div class="steplist-show-header" style="background-color: white">
+    <div class="container steplist-header-text-container">
+      <h2>My pins</h2>
+    </div>
+  </div>
+  <div class="container steplist-cards-background" style="padding-top: 40; min-height: 100vh;">
+    <div class="container steplist-cards-background" style="padding-top: 40px">
+      <% @my_pins.each do |pin| %>
+        <%= render 'shared/steplist_card', steplist: pin.steplist %>
+      <% end %>
+    </div>
+  </div>
+</div>

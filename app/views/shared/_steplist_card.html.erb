@@ -1,0 +1,25 @@
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+  <div class="steplist-card-block" >
+    <div class="steplist-card">
+      <div class="steplist-card-body">
+
+      <% if current_user.pinned?(steplist) %>
+        <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}", class: 'pinned' do %>
+          <i class="fa fa-thumb-tack" aria-hidden="true" style="color: black;"></i>
+        <% end %>
+      <% else %>
+        <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}" do %>
+          <i class="fa fa-thumb-tack" aria-hidden="true" style="color: black;"></i>
+        <% end %>
+      <% end %>
+
+        <p class="author-name"> <strong>Author:</strong>
+          <%= "#{steplist.user.first_name.capitalize} #{steplist.user.last_name.capitalize}" %>
+        </p>
+        <h5 class="steplist-card-title">
+          <%= link_to "#{steplist.title.truncate(50)}",steplist_path(steplist) %>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>

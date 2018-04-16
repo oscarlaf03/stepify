@@ -1,7 +1,7 @@
-class SteplistPolicy < ApplicationPolicy
+class PinPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
@@ -9,20 +9,11 @@ class SteplistPolicy < ApplicationPolicy
     true
   end
 
-  def update?
-    record.user == user
-  end
-
   def destroy?
     record.user == user
   end
 
-  def show?
+  def update_pin?
     true
   end
-
-
-
 end
-
-
