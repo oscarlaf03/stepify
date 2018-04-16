@@ -8,7 +8,7 @@
   <!-- STEP BLOCK CONTENT -->
   <a href="#popup<%= step.id %>">
     <div class="cd-timeline-content">
-      <div>
+      <div class="row">
         <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
       </div>
 
