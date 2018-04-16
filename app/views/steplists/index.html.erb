@@ -1,11 +1,13 @@
 <div style="background-color: #F5F7FB; ">
 
-<div class="steplist-show-header" style="background-color: white">
-  <div class="container steplist-header-text-container">
-  <h2>Browse all steplists</h2>
-</div>
-</div>
+  <div class="steplist-show-header" style="background-color: white">
+    <div class="container steplist-header-text-container">
+      <h2>Browse all steplists</h2>
+    </div>
+  </div>
+  <%= link_to "browse organizations", organizations_path, class: 'btn btn-primary btn-lg'  %>
 
+  <%= link_to "Add new Organization", new_organization_path, class: 'btn btn-primary btn-lg'  %>
 <div class="container steplist-cards-background" style="padding-top: 40; min-height: 100vh;">
 
 <% @steplists.each do  |steplist|%>
@@ -23,4 +25,5 @@
       <% end %>
       <% end %>
   </div>
+
 </div>
