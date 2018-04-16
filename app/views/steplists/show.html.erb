@@ -20,7 +20,7 @@
   <ul>
     <li>Author: <%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></li>
     <li>Completion: <%= @steplist.id  %></li>
-    <li>Last edited: <%= @steplist.updated_at %></li>
+    <li>Last edited: <%= @steplist.updated_at.strftime("%d/%m/%Y") %></li>
     <li>Total Steps: <%= @steplist.steps.count  %></li>
   </ul>
 </div>
@@ -32,17 +32,48 @@
     <% @steplist.steps.order(created_at: :asc).each do |step|  %>
     <%= render 'shared/step_card', step: step %>
     <% end %>
+
+
+<!-- END OR ADD ICON AND LINE  -->
+ <% if current_user == @steplist.user %>
+    <div class="cd-timeline-block" onclick="myFunction()">
+      <div class="cd-timeline-img cd-add fadeIn ">
+        <i class="fa fa-plus plus-icon"" id="center-icon"></i>
+      </div>
+    </div>
+    <% else %>
+    <div class="cd-timeline-block" onclick="myFunction()">
+      <div class="cd-timeline-img cd-end fadeIn ">
+      </div>
+    </div>
+<%end%>
   </section>
 
 
   <!-- NEW STEP FORM   -->
-  <div class="container" style="width: 300px">
+
+<div id="new-step-form" class="fadeIn">
+
+  <div class="container fadeIn" style="width: 300px">
     <% if current_user == @steplist.user %>
     <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
     <% end %>
   </div>
 
 </div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("new-step-form");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
+
 
   <!-- STEP POPUPS  -->
   <% @steplist.steps.each_with_index do |step, index|  %>
@@ -54,8 +85,6 @@
             <h2 class="modal-title" ><%= step.title %></h2>
           </div>
           <div class="modal-body">
-
-
             <%= render 'shared/show_of_step', step: step %>
             <div class="modal-footer">
               <% unless index == 0 %>

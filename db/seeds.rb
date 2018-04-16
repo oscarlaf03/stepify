@@ -50,7 +50,7 @@ array_users.each do |user|
   end
 end
 
-puts "#{Steplist.count} steplists creeated"
+puts "#{Steplist.count} steplists created"
 
 puts 'creating steps for steplists'
 

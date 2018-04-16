@@ -1,11 +1,9 @@
-
-
 <p class="step-popup-description"><%= step.description %><p>
 <% if step.photos.any?  %>
   <div class="image-popup-row">
     <% step.photos.each do |photo| %>
       <div class="image-popup-column">
-        <%= cl_image_tag photo.image, height: 200, width: 300, crop: :fill, class: 'popup-image-item'%>
+        <%= cl_image_tag photo.image, crop: :fill, class: 'popup-image-item img'%>
       </div>
     <% end %>
   </div>
