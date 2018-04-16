@@ -4,23 +4,24 @@
   <div class="cd-timeline-img cd-seeing">
     <%= link_to '<i class="fa fa-check" id="center-icon"></i>'.html_safe,step_path(step) %>
   </div>
-    <% if current_user == @steplist.user %>
-      <span class="cd-date">
-        <%= link_to '<i class="fa fa-pencil" id="step-edit-icon"></i>'.html_safe, edit_step_path(step) %>
-        <%= link_to '<i class="fa fa-trash" id="step-delete-icon"></i>'.html_safe, step_path(step), method: :delete,data: {confirm: "No going Back"} %>
-      </span>
-    <% end %>
 
   <!-- STEP BLOCK CONTENT -->
   <div data-toggle="modal" data-target="#Modalpopup<%= step.id %>">
     <div class="cd-timeline-content">
-      <div>
-        <h4 id="step-title-timeline">
-          <%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %>
-          </h4>
-    </div>
-  </div>
-
+      <div class="row">
+        <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
+      </div>
+    </a>
     <!-- DATE AND EDIT ICONS -->
+    <% if current_user == @steplist.user %>
+    <span class="cd-date">
+      <%= link_to '<i class="fa fa-pencil" id="step-edit-icon"></i>'.html_safe, edit_step_path(step) %>
+      <%= link_to '<i class="fa fa-trash" id="step-delete-icon"></i>'.html_safe, step_path(step), method: :delete,data: {confirm: "No going Back"} %>
+    </span>
+    <span class="cd-date">
+      <% end %>
+      <div>
+      </div>
+    </div>
   </div>
 </div>
