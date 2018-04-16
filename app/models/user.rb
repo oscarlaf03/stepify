@@ -4,11 +4,11 @@ class User < ApplicationRecord
   mount_uploader :user_photo, UserPhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_and_belongs_to_many :organization, optional: true
   has_many :steplists
   has_many :steps, through: :steplists
   has_many :visualizations
   has_many :visualized_steps, through: :visualizations, source: :step
+  has_many :organizations, through: :organization_users
   validates :first_name, :last_name, presence: true
 
   private
