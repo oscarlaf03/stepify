@@ -14,11 +14,13 @@ class StepsController < ApplicationController
     @step = Step.new(step_params)
     @step.steplist = @steplist
     if @step.save
-      params[:step][:photos].each do |photo|
-        @photo = @step.photos.create!(image: photo)
+      unless params[:step][:photos].nil?
+        params[:step][:photos].each do |photo|
+          @photo = @step.photos.create!(image: photo)
+        end
       end
       respond_to do |format|
-        format.html { redirect_to steplist_path(@steplist), notice: 'Step successfully added.' }
+        format.html { }
         format.js
       end
     else

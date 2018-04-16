@@ -1,0 +1,12 @@
+<%= simple_form_for organization do |f| %>
+  <%= f.input :company_name, label: 'Organization Name', place_holder: 'Your company name here'  %>
+  <%= f.input :web_site, label: "Web site", place_holder: 'Link to your site'  %>
+  <%= f.input :logo, label: 'Add Company logo'  %>
+  <%= f.input :image_banner, label: 'Add Company Cover Image'  %>
+  <%= link_to "browse organizations", organizations_path, class: 'btn btn-primary btn-lg'  %>
+
+  <%= f.submit value: "Create Organization", class: 'btn btn-success btn-lg' %>
+
+
+
+<% end %>
