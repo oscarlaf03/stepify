@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417163815) do
+ActiveRecord::Schema.define(version: 20180417192752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20180417163815) do
     t.datetime "updated_at", null: false
     t.integer "organization_id"
     t.boolean "private", default: false, null: false
+    t.text "user_tags"
     t.index ["user_id"], name: "index_steplists_on_user_id"
   end
 

@@ -234,6 +234,7 @@ DEPENDENCIES
   autoprefixer-rails
   best_in_place (~> 3.0.1)
   bootstrap-sass (~> 3.3)
+  byebug
   carrierwave (~> 1.2)
   cloudinary
   devise

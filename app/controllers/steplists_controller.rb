@@ -1,22 +1,10 @@
 class SteplistsController < ApplicationController
   before_action :set_user, only: [:create, :update, :dashboard]
   before_action :set_steplist, only: [:edit, :show, :update, :destroy ]
+  before_action :set_info_tag, only: [:create, :update]
 
   def index
-    if params[:query].present?
-      sql_query = " \
-        steplists.title ILIKE :query \
-        OR steplists.description ILIKE :query \
-        OR steps.title ILIKE :query \
-        OR steps.description ILIKE :query \
-      "
-      @steplists = policy_scope(Steplist).joins(:steps).where(sql_query, query: "%#{params[:query]}%")
-
-    elsif params[:my_steplists]
-      @steplists = policy_scope(Steplist).where(user: current_user)
-    else
-      @steplists = policy_scope(Steplist).order(created_at: :desc)
-    end
+    @steplists = policy_scope(Steplist).where(private: false).order(created_at: :desc)
   end
 
 
@@ -75,7 +63,7 @@ class SteplistsController < ApplicationController
   end
 
   def steplist_params
-    params.require(:steplist).permit(:title, :description)
+    params.require(:steplist).permit(:title, :description, :user_tags, info_tag:[])
   end
 
   def set_user
@@ -84,6 +72,10 @@ class SteplistsController < ApplicationController
 
   def set_step
     @step = Step.find(params[:id])
+  end
+
+  def set_info_tag
+    @info_tag = params[:steplist][:info_tag]
   end
 
 end
