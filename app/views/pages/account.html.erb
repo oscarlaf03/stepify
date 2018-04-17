@@ -1,0 +1,37 @@
+
+
+<div class="row" style="background-color: #F5F7FB; ">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="page-title">
+      <h2> Manage your Account </h2>
+    </div>
+
+    <table class="table">
+      <tr>
+        <th>
+          First Name
+        </th>
+        <td>
+          <%= @user.first_name %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Last Name
+        </th>
+        <td>
+          <%= @user.last_name %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Email
+        </th>
+        <td>
+          <%= @user.email  %>
+        </td>
+      </tr>
+    </table>
+    <%= link_to "Edit your information", edit_user_registration_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>

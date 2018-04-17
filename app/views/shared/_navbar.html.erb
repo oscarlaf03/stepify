@@ -16,8 +16,8 @@
                 <%= current_user.first_name.capitalize %>
               </li>
               <li>
-                <%= link_to edit_user_registration_path do %>
-                <%= t(".profile", default: "Profile") %>
+                <%= link_to account_path do %>
+                <%= t(".account", default: "Account") %>
                 <% end %>
               </li>
               <li>

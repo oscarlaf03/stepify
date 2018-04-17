@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     @my_pins = Pin.where(user: current_user)
   end
 
+  def account
+    @user = current_user
+  end
+
   def search
     if params[:query].present?
 
