@@ -45,7 +45,7 @@ Main components
   left: 18px;
   height: 98%;
   width: 4px;
-  background: #d7e4ed;
+  background: white;
 }
 
 @media only screen and (min-width: 1170px) {
@@ -207,7 +207,7 @@ Main components
   background: #ffffff;
   border-radius: 0.25em;
   // padding: 1em;
-  box-shadow: 0 3px 0 #D3D3D3;
+  box-shadow: 0 3px 0 gray;
   min-width: 150px;
   &:hover{
     background: #F0F0F0;

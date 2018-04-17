@@ -7,12 +7,6 @@
   </div>
 </div>
 
-
-<div class="container" >
-
-</div>
-
-
 <!-- STEPLIST INFO BAR -->
 
 
@@ -25,13 +19,17 @@
   </ul>
 </div>
 
-<div style="background-color: #F5F7FB;">
+<div style="background-color: #838C92;">
   <!-- RENDER LÍNEA DE TIEMPO -->
   <section id="cd-timeline" class="cd-container">
     <% @steplist.steps.order(created_at: :asc).each do |step|  %>
       <%= render 'shared/step_card', step: step %>
     <% end %>
     <!-- END OR ADD ICON AND LINE  -->
+
+  </section>
+  <!-- NEW STEP FORM   -->
+
     <% if current_user == @steplist.user %>
       <div class="cd-timeline-block" onclick="myFunction()">
         <div class="cd-timeline-img cd-add fadeIn ">
@@ -44,11 +42,8 @@
         </div>
       </div>
     <%end%>
-  </section>
-  <!-- NEW STEP FORM   -->
-
-  <div id="new-step-form" class="fadeIn">
     <div class="container fadeIn" style="width: 300px">
+  <div id="new-step-form" class="fadeIn">
       <% if current_user == @steplist.user %>
         <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
       <% end %>
@@ -67,30 +62,7 @@
   </script>
 
   <!-- STEP POPUPS  -->
-  <% @steplist.steps.each_with_index do |step, index|  %>
-    <div id="Modalpopup<%= step.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h2 class="modal-title" ><%= step.title %></h2>
-          </div>
-          <div class="modal-body">
-            <%= render 'shared/show_of_step', step: step %>
-            <div class="modal-footer">
-              <% unless index == 0 %>
-                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup<%= step.steplist.steps[index - 1].id %>" data-dismiss="modal"> Back</button>
-              <% end %>
-              <% unless index == step.steplist.steps.size-1 %>
-                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup<%= step.steplist.steps[index + 1].id %>" data-dismiss="modal"> NEXT
-                </button>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end  %>
+
 </div>
 
 <div class="steplist-show-header" style="background-color: white">

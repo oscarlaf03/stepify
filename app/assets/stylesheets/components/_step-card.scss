@@ -49,3 +49,12 @@
   font-size: 21px;
   margin-top: -10px;
 }
+
+body{
+   counter-reset: section;
+}
+
+.step-numerator::before{
+    counter-increment: section;
+    content: counter(section) ") ";
+}

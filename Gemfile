@@ -13,7 +13,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'pundit'
 gem 'jquery-rails'
 gem 'best_in_place', '~> 3.0.1'
-
+gem 'animate.css-rails', '~> 3.2.0'
 
 
 gem 'autoprefixer-rails'

@@ -1,17 +1,17 @@
 
 <!-- CENTER ICON AND LINE  -->
 <div class="cd-timeline-block">
-  <div class="cd-timeline-img cd-seeing bounceIn ">
-    <%= link_to '<i class="fa fa-check" id="center-icon"></i>'.html_safe,step_path(step) %>
+  <div class="cd-timeline-img cd-seeing bounceIn" data-toggle="modal" data-target="#Modalpopup<%= step.id %>">
+    <i class="fa fa-check" id="center-icon"></i>
   </div>
 
   <!-- STEP BLOCK CONTENT -->
-  <div data-toggle="modal" data-target="#Modalpopup<%= step.id %>" id='step<%= step.id  %>'>
-    <div class="cd-timeline-content">
-      <div class="row">
-        <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
+  <div>
+    <div class="cd-timeline-content bounceIn">
+      <div class="row " data-toggle="modal" data-target="#Modalpopup<%= step.id%>">
+        <h4 class="step-numerator" id="step-title-timeline" style="z-index: 2"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %></h4>
+
       </div>
-    </a>
     <!-- DATE AND EDIT ICONS -->
     <% if current_user == @steplist.user %>
     <span class="cd-date">
@@ -24,7 +24,32 @@
       </div>
     </div>
   </div>
+  <% @steplist.steps.each_with_index do |step, index|  %>
+    <div id="Modalpopup<%= step.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title" ><%= step.title %></h2>
+          </div>
+          <div class="modal-body">
+            <%= render 'shared/show_of_step', step: step %>
+            <div class="modal-footer">
+              <% unless index == 0 %>
+                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup<%= step.steplist.steps[index - 1].id %>" data-dismiss="modal"> Back</button>
+              <% end %>
+              <% unless index == step.steplist.steps.size-1 %>
+                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup<%= step.steplist.steps[index + 1].id %>" data-dismiss="modal"> NEXT
+                </button>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end  %>
 </div>
+
 
 
 
