@@ -42,7 +42,7 @@
         <!-- DISPLAY COMPANY STEPLISTS -->
 
         <% if @org_steplists.any? %>
-        <h2>Steplists for: <%= @organization.company_name %></h2>
+        <h3>Steplists for: <%= @organization.company_name %></h3>
         <div class="container steplist-cards-background" style="padding-top: 40px">
           <% @org_steplists.each do  |steplist|%>
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
