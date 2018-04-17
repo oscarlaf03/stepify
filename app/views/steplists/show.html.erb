@@ -2,9 +2,9 @@
 <!-- Steplist header -->
 <div class="steplist-show-header" style="background-color: white">
   <div class="container steplist-header-text-container">
-  <h2><%= @steplist.title %></h2>
-  <h4><%= @steplist.description %></h4>
-</div>
+    <h2><%= @steplist.title %></h2>
+    <h4><%= @steplist.description %></h4>
+  </div>
 </div>
 
 
@@ -26,54 +26,45 @@
 </div>
 
 <div style="background-color: #F5F7FB;">
-
   <!-- RENDER LÍNEA DE TIEMPO -->
   <section id="cd-timeline" class="cd-container">
     <% @steplist.steps.order(created_at: :asc).each do |step|  %>
-    <%= render 'shared/step_card', step: step %>
+      <%= render 'shared/step_card', step: step %>
     <% end %>
-
-
-<!-- END OR ADD ICON AND LINE  -->
- <% if current_user == @steplist.user %>
-    <div class="cd-timeline-block" onclick="myFunction()">
-      <div class="cd-timeline-img cd-add fadeIn ">
-        <i class="fa fa-plus plus-icon"" id="center-icon"></i>
+    <!-- END OR ADD ICON AND LINE  -->
+    <% if current_user == @steplist.user %>
+      <div class="cd-timeline-block" onclick="myFunction()">
+        <div class="cd-timeline-img cd-add fadeIn ">
+          <i class="fa fa-plus plus-icon"" id="center-icon"></i>
+        </div>
       </div>
-    </div>
-    <% else %>
-    <div class="cd-timeline-block" onclick="myFunction()">
-      <div class="cd-timeline-img cd-end fadeIn ">
+      <% else %>
+      <div class="cd-timeline-block" onclick="myFunction()">
+        <div class="cd-timeline-img cd-end fadeIn ">
+        </div>
       </div>
-    </div>
-<%end%>
+    <%end%>
   </section>
-
-
   <!-- NEW STEP FORM   -->
 
-<div id="new-step-form" class="fadeIn">
-
-  <div class="container fadeIn" style="width: 300px">
-    <% if current_user == @steplist.user %>
-    <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
-    <% end %>
+  <div id="new-step-form" class="fadeIn">
+    <div class="container fadeIn" style="width: 300px">
+      <% if current_user == @steplist.user %>
+        <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
+      <% end %>
+    </div>
   </div>
 
-</div>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("new-step-form");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
-
-
+  <script>
+  function myFunction() {
+      var x = document.getElementById("new-step-form");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
 
   <!-- STEP POPUPS  -->
   <% @steplist.steps.each_with_index do |step, index|  %>
@@ -94,18 +85,14 @@ function myFunction() {
                 <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup<%= step.steplist.steps[index + 1].id %>" data-dismiss="modal"> NEXT
                 </button>
               <% end %>
-
-
             </div>
-
           </div>
         </div>
       </div>
     </div>
   <% end  %>
-
-
-
+</div>
 
 <div class="steplist-show-header" style="background-color: white">
+
 </div>
