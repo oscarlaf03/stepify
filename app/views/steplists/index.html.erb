@@ -4,15 +4,17 @@
       <h2>Browse all steplists</h2>
     </div>
   </div>
-  <%= link_to "browse organizations", organizations_path, class: 'btn btn-primary btn-lg'  %>
-  <%= link_to "Add new Organization", new_organization_path, class: 'btn btn-primary btn-lg'  %>
-  <%= link_to "My pins", my_pins_path, class: 'btn btn-primary btn-lg'  %>
+
+<%= render 'shared/tabs_index' %>
   <div class="container steplist-cards-background" style="padding-top: 40; min-height: 100vh;">
     <div class="container steplist-cards-background" style="padding-top: 40px">
       <% @steplists.each do  |steplist|%>
         <%= render 'shared/steplist_card', steplist: steplist %>
       <% end %>
     </div>
-
   </div>
 </div>
+
+  <%= link_to "browse organizations", organizations_path, class: 'btn btn-primary btn-sm'  %>
+  <%= link_to "Add new Organization", new_organization_path, class: 'btn btn-primary btn-sm'  %>
+  <%= link_to "My pins", my_pins_path, class: 'btn btn-primary btn-sm'  %>
