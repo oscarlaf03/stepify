@@ -5,6 +5,7 @@
   <% if current_user.organizations.present? %>
 
     <%= f.input :organization, label: 'Add this steplist to one of you organizations', collection: current_user.organizations.map {|org| [org.company_name, org.id]}  %>
+    <%= f.input :private,  as: :select %>
   <% end %>
 
   <%= f.submit %>

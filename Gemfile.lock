@@ -84,6 +84,8 @@ GEM
       sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gutentag (2.3.1)
+      activerecord (>= 3.2.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
@@ -238,6 +240,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass (~> 4.7)
+  gutentag (~> 2.3)
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener

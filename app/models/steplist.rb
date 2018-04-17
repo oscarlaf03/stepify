@@ -1,4 +1,6 @@
 class Steplist < ApplicationRecord
+  Gutentag::ActiveRecord.call self
+
   belongs_to :user
   belongs_to :organization, optional: true
   has_many :steps, dependent: :destroy
