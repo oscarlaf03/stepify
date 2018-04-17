@@ -1,5 +1,29 @@
 
+
+.bootstrap-tabs {
+  background-color: #575353;
+
+  li {
+
+    a {
+      color: white;
+    }
+
+  }
+}
+
+.bootstrap-tabs .active {
+  li {
+    a {
+      font-size: 39px;
+      background-color: $stepify-salmon;
+    }
+  }
+}
+
+
 .browser-tab{
+
 
   main {
     min-width: 320px;
