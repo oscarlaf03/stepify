@@ -6,7 +6,7 @@
   </div>
 
   <!-- STEP BLOCK CONTENT -->
-  <div data-toggle="modal" data-target="#Modalpopup<%= step.id %>">
+  <div data-toggle="modal" data-target="#Modalpopup<%= step.id %>" id='step<%= step.id  %>'>
     <div class="cd-timeline-content">
       <div class="row">
         <h4 id="step-title-timeline"><%= current_user == @steplist.user ? best_in_place(step, :title, as: :input) : step.title  %> </h4>
