@@ -1,43 +1,48 @@
 
 <% if @organization.logo.present? %>
-  <% logo_path = cl_image_path @organization.logo %>
-  <% else %>
-  <% logo_path = "http://placehold.it/70x70" %>
+<% logo_path = cl_image_path @organization.logo %>
+<% else %>
+<% logo_path = "http://placehold.it/70x70" %>
 <% end %>
 
 
 <% if @organization.image_banner.present? %>
-  <% banner_path = cl_image_path @organization.image_banner %>
-  <% else %>
-  <% banner_path = 'http://res.cloudinary.com/dkkvtcelc/image/upload/v1523819608/cover_example.jpg' %>
+<% banner_path = cl_image_path @organization.image_banner %>
+<% else %>
+<% banner_path = 'http://res.cloudinary.com/dkkvtcelc/image/upload/v1523819608/cover_example.jpg' %>
 <% end %>
 
-<div class="banner">
-<%= image_tag banner_path  %>
 
-</div>
-
-<div class="wrapper">
-  <div class="container">
-    <div class="company-header">
-      <%= image_tag logo_path, class: "company-logo"  %>
-      <h1><%= @organization.company_name  %></h1>
+    <div class="banner organization-banner-container" >
+      <%= image_tag banner_path, class: "organization-banner-img" %>
     </div>
-    <%= link_to 'Back to organizations', organizations_path, class: 'btn btn-primary btn-lg'%>
 
-    <% if @organization.users.include?(current_user) && OrganizationUser.find_by(organization: @organization, user: @user).admin? %>
-      <%= link_to 'Edit Companyinfo', edit_organization_path(@organization), class: 'btn btn-primary btn-lg'%>
-    <% end %>
 
-    <% if @organization.users.include?(current_user) %>
-      <%= link_to "Add Step to this organization", new_steplist_path, class: 'btn btn-success btn-lg'  %>
-    <% end %>
+<div style="min-height: 100vh">
+  <div class="wrapper">
+    <div class="container">
+      <div class="organization-header">
+        <div class="organization-logo-container"><div class="row"> <%= image_tag logo_path, class: "organization-logo"  %></row>
+          <div class="row"><h1 style="float: left;"><%= @organization.company_name  %></h1></div>
+        </div>
+        <%= link_to 'Back to organizations', organizations_path, class: 'btn btn-primary btn-sm'%>
 
-    <% if @org_steplists.any? %>
-      <h2>Steplists for: <%= @organization.company_name %></h2>
+        <% if @organization.users.include?(current_user) && OrganizationUser.find_by(organization: @organization, user: @user).admin? %>
+        <%= link_to 'Edit Companyinfo', edit_organization_path(@organization), class: 'btn btn-primary btn-sm'%>
+        <% end %>
 
-      <div class="container steplist-cards-background" style="padding-top: 40px">
-        <% @org_steplists.each do  |steplist|%>
+        <% if @organization.users.include?(current_user) %>
+        <%= link_to "Add Step to this organization", new_steplist_path, class: 'btn btn-success btn-sm'  %>
+        <% end %>
+
+
+
+        <!-- DISPLAY COMPANY STEPLISTS -->
+
+        <% if @org_steplists.any? %>
+        <h2>Steplists for: <%= @organization.company_name %></h2>
+        <div class="container steplist-cards-background" style="padding-top: 40px">
+          <% @org_steplists.each do  |steplist|%>
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="steplist-card-block" >
               <div class="steplist-card">
@@ -52,14 +57,14 @@
               </div>
             </div>
           </div>
-        <% end %>
+          <% end %>
+        </div>
+        <% else %>
+        <h2>Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h2>
+        <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-lg'  %>
+        <%end%>
+
       </div>
-      <% else %>
-      <h2>Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h2>
-
-      <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-lg'  %>
-    <%end%>
-
+    </div>
   </div>
 </div>
-
