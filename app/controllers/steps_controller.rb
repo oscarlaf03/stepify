@@ -20,7 +20,7 @@ class StepsController < ApplicationController
         end
       end
       respond_to do |format|
-        format.html { }
+        format.html {redirect_to steplist_path(@steplist,remote: true, anchor: "step#{@steplist.steps.last.id}" )}
         format.js
       end
     else
