@@ -5,6 +5,9 @@ class SteplistsController < ApplicationController
 
   def index
     @steplists = policy_scope(Steplist).where(private: false).order(created_at: :desc)
+    @my_steplists = policy_scope(Steplist).where(private: false, user: current_user).order(created_at: :desc)
+    @my_pins = Pin.where(user: current_user)
+
   end
 
 
