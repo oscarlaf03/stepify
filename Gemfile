@@ -14,6 +14,8 @@ gem 'pundit'
 gem 'jquery-rails'
 gem 'best_in_place', '~> 3.0.1'
 gem 'animate.css-rails', '~> 3.2.0'
+gem 'gutentag', '~> 2.3'
+
 
 
 gem 'autoprefixer-rails'
@@ -32,6 +34,7 @@ end
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

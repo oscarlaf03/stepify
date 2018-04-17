@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get 'pages/test', to: 'pages#test', as: 'test'
   resources :pins , only: [:index]
   get 'my_pins', to: 'pages#my_pins'
+  get 'search', to: 'pages#search'
+  get 'my_lists', to: 'pages#my_lists'
 end

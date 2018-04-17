@@ -1,0 +1,16 @@
+<div style="background-color: #F5F7FB; ">
+  <div class="steplist-show-header" style="background-color: white">
+    <div class="container steplist-header-text-container">
+      <h1>Step lists for <%= current_user.first_name.capitalize %></h1>
+    </div>
+  </div>
+
+
+  <div class="container steplist-cards-background" style="padding-top: 40; min-height: 100vh;">
+    <div class="container steplist-cards-background" style="padding-top: 40px">
+      <% @steplists.each do  |steplist|%>
+        <%= render 'shared/steplist_card', steplist: steplist %>
+      <% end %>
+    </div>
+  </div>
+</div>

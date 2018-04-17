@@ -22,7 +22,6 @@ class SteplistPolicy < ApplicationPolicy
   end
 
 
-
 end
 
 
