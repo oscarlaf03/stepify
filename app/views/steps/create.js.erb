@@ -5,10 +5,6 @@ function refreshForm(innerHTML) {
   newForm.innerHTML = innerHTML;
 }
 
-function addStep(stepHTML) {
-  const steps = document.getElementById('steps');
-  steps.insertAdjacentHTML('beforeend', stepHTML);
-}
 
 function addStepCard(stepHTML) {
   const steps = document.getElementById('cd-timeline');
@@ -23,7 +19,6 @@ function addStepCard(stepHTML) {
 
 <% else %>
   console.log('aqui if errors false')
-  addStep('<%= j render "shared/show_step", step: @step, steplist: @steplist %>');
   addStepCard('<%= j render "shared/step_card", step: @step, steplist: @steplist %>');
   refreshForm('<%= j render "shared/form_step", steplist: @steplist, step: Step.new %>');
   console.log('final do errors false');
