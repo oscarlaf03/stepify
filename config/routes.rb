@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'my_pins', to: 'pages#my_pins'
   get 'search', to: 'pages#search'
   get 'my_lists', to: 'pages#my_lists'
+  get 'account', to: 'pages#account'
 end
