@@ -19,14 +19,17 @@
 
 
 <div style="min-height: 100vh">
-  <div class="wrapper">
+
     <div class="container">
       <div class="organization-header">
-        <div class="organization-logo-container"><div class="row"> <%= image_tag logo_path, class: "organization-logo"  %></row>
-          <div class="row"><h1 style="float: left;"><%= @organization.company_name  %></h1></div>
-        </div>
-        <%= link_to 'Back to organizations', organizations_path, class: 'btn btn-primary btn-sm'%>
 
+        <div class="organization-logo-container">
+          <div> <%= image_tag logo_path, class: "organization-logo" %></div>
+          <div class="row"><h1 style="float: left;"><%= @organization.company_name %></h1></div>
+        </div>
+
+
+        <%= link_to 'Back to organizations', organizations_path, class: 'btn btn-primary btn-sm'%>
         <% if @organization.users.include?(current_user) && OrganizationUser.find_by(organization: @organization, user: @user).admin? %>
         <%= link_to 'Edit Companyinfo', edit_organization_path(@organization), class: 'btn btn-primary btn-sm'%>
         <% end %>
@@ -34,8 +37,6 @@
         <% if @organization.users.include?(current_user) %>
         <%= link_to "Add Step to this organization", new_steplist_path, class: 'btn btn-success btn-sm'  %>
         <% end %>
-
-
 
         <!-- DISPLAY COMPANY STEPLISTS -->
 
@@ -67,4 +68,4 @@
       </div>
     </div>
   </div>
-</div>
+
