@@ -1,0 +1,25 @@
+
+
+<% if org.logo.present? %>
+<% logo_path = cl_image_path org.logo %>
+<% else %>
+<% logo_path = "https://png.icons8.com/ios/1600/company.png" %>
+<% end %>
+
+
+
+
+    <div class="col-xs-12 col-sm-4">
+      <% #cl_image_path org.logo %>
+
+      <div class="org-card" >
+        <div class="card-category"></div>
+        <div class="card-description">
+          <h2><%= org.company_name %></h2>
+          <p> <%= org.steplists.where(private: false).count %> Public steplists </p>
+        </div>
+        <img class="card-org-logo" src="<%= logo_path %>">
+        <a class="card-link" href="<%= organization_path(org)%>" ></a>
+      </div>
+
+    </div>
