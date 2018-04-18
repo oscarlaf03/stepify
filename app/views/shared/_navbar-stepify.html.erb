@@ -1,21 +1,18 @@
 <div id='cssmenu'>
-  <ul class="">
+  <ul class="" style="text-align:right;">
 
-    <li class='last' id="stepify-logo"><%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <li class='last' style="float: left;" id="stepify-logo"><%= link_to root_path, class: "navbar-wagon-brand" do %>
         <%= image_tag "logo4.png"%>
       <% end %>
     </li>
 
 
     <li class='first'>
-      <div class="search-bar">
+      <div class="search-bar" style="">
         <%= form_tag search_path,method: :get do %>
           <%= text_field_tag :query,
           params[:query],
-          class: "form-control", placeholder: 'See steps for...', style: 'background-color: #565252;
-            color: rgba(0, 0, 0, 0.075);
-            border-style: none;
-            color: white;' %>
+          class: "form-control", placeholder: 'See steps for...', style: 'background-color: #f5f5f5; color: rgba(0, 0, 0, 0.075);border-style: none;color: #777; height: 30px; margin-top: 7px' %>
         <% end %>
       </div>
     </li>

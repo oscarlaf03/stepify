@@ -21,6 +21,7 @@
   height: 0;
   clear: both;
   visibility: hidden;
+
 }
 
 #stepify-logo{
@@ -47,7 +48,7 @@
   color: #ffffff;
   text-decoration: none;
   display: block;
-  padding: 15px 25px;
+  padding: 10px 25px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -58,6 +59,7 @@
   -ms-transition: color .25s;
   -o-transition: color .25s;
   transition: color .25s;
+  text-align: right;
 
 }
 #cssmenu ul li a:hover {
