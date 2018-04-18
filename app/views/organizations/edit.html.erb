@@ -1,4 +1,8 @@
 <div class="container">
   <h1>Edit your organization Info</h1>
   <%= render 'form_organization', organization: @organization  %>
+  <br>
+  <%= link_to 'Add users to this organization', new_organization_organization_user_path(@organization), class: 'btn btn-primary btn-lg' %>
 </div>
+
+

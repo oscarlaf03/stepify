@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   end
   root to: 'steplists#index'
   resources :steps, only: [:update, :edit, :destroy, :show]
-  resources :organizations
+  resources :organizations do
+    resources :organization_users, only: [:new, :edit, :create, :update]
+  end
+  resources :organization_users, only: [:destroy]
+
   get 'visualizations/dashboard', to: 'visualizations#dashboard', as: 'dashboard'
   get 'pages/test', to: 'pages#test', as: 'test'
   resources :pins , only: [:index]

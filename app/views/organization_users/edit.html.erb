@@ -1,0 +1,12 @@
+
+<div style="min-height: 100vh">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <h3>Edit users to <%= @organization.company_name.capitalize  %></h3>
+          <%= render 'shared/org_user_form', org_user: @org_user %>
+      </div>
+    </div>
+  </div>
+</div>
+
