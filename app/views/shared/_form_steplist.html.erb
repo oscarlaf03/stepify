@@ -1,7 +1,7 @@
 <%= simple_form_for @steplist do |f| %>
   <%= f.input :title, label: 'Title for your Steplist', placeholder: "What is the outcome of this steplist?" %>
   <%= f.input :description ,label: "Steplist description", placeholder: 'Why is this steplist important?'%>
-  <%= f.input :user_tags , label: "Add tags to find your steplists", placeholder: 'This keywords help everyone find your steplist',as: :text %>
+  <%= f.input :user_tags , label: "Add topics to your steplist using '#' ", placeholder: 'example: #cars #fashion #career development',as: :text %>
 
   <% if current_user.organizations.present? %>
 
