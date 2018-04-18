@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get 'search', to: 'pages#search'
   get 'my_lists', to: 'pages#my_lists'
   get 'account', to: 'pages#account'
+  get 'my_orgs', to: 'pages#my_orgs'
 end

@@ -4,13 +4,17 @@
       <div class="steplist-card-body">
         <% if  user_signed_in?  %>
           <% if current_user.pinned?(steplist) %>
-            <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}", class: 'pinned' do %>
-              <i class="fa fa-thumb-tack" aria-hidden="true" style="color: black;"></i>
-            <% end %>
+            <div class="pin-box">
+              <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}", class: 'pinned' do %>
+                <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" ></i>
+              <% end %>
+            </div>
           <% else %>
+          <div class="pin-box">
             <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}" do %>
-              <i class="fa fa-thumb-tack" aria-hidden="true" style="color: black;"></i>
+              <i class="fa fa-thumb-tack fa-xs " aria-hidden="true"></i>
             <% end %>
+          </div>
           <% end %>
         <% end %>
 

@@ -9,5 +9,10 @@
     <li role="presentation" class="<%= current_page?(my_pins_path)? 'active': '' %>">
       <a href='<%= my_pins_path %>'>My Pins</a>
     </li>
+    <% if current_user.organizations.any? %>
+      <li role="presentation" class="<%= current_page?(my_pins_path)? 'active': '' %>">
+        <a href='<%= my_orgs_path %>'>My Company</a>
+      </li>
+    <% end %>
   </ul>
 <% end %>
