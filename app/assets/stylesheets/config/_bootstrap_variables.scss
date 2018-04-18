@@ -52,3 +52,15 @@ div{
   margin-left: 0px;
   margin-right: 0px;
 }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fc6e5c !important;
+    background-color: #294f89 !important;
+    border: 1px solid #ddd0 !important;
+    border-bottom-color: transparent !important;
+    cursor: default !important;
+}
+
+.nav-tabs {
+  border-bottom: none!important;
+}
