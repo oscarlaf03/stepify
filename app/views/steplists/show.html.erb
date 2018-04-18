@@ -19,6 +19,14 @@
   </ul>
 </div>
 
+  <% if @steplist.tag_names.any?  %>
+    <ul>
+      <% @steplist.tag_names.each do |tag| %>
+        <li> <%="##{tag}"%></li>
+      <% end %>
+     </ul>
+  <% end %>
+
 <div style="background-color: #838C92;">
   <!-- RENDER LÍNEA DE TIEMPO -->
   <section id="cd-timeline" class="cd-container">
