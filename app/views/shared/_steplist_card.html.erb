@@ -2,6 +2,16 @@
   <div class="steplist-card-block" >
     <div class="steplist-card">
       <div class="steplist-card-body">
+
+        <p class="author-name"> <strong>Author:</strong>
+          <%= "#{steplist.user.first_name.capitalize.truncate(20)} #{steplist.user.last_name.capitalize}" %>
+        </p>
+        <strong><h5 class="steplist-card-title">
+          <%= link_to "#{steplist.title.truncate(40)}",steplist_path(steplist) %>
+        </h5></strong>
+
+<div class="pin-box">
+
         <% if  user_signed_in?  %>
           <% if current_user.pinned?(steplist) %>
             <div class="pin-box">
@@ -17,13 +27,13 @@
           </div>
           <% end %>
         <% end %>
+</div>
 
-        <p class="author-name"> <strong>Author:</strong>
-          <%= "#{steplist.user.first_name.capitalize} #{steplist.user.last_name.capitalize}" %>
-        </p>
-        <h5 class="steplist-card-title">
-          <%= link_to "#{steplist.title.truncate(50)}",steplist_path(steplist) %>
-        </h5>
+
+
+
+
+
       </div>
     </div>
   </div>

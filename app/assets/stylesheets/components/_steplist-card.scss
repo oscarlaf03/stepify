@@ -3,8 +3,8 @@
   background: #ffffff;
   border-radius: 0.25em;
   border-color: $stepify-dark-gray;
-  padding: 10px;
-  margin: 15px;
+  padding: 5px 15px;
+  margin: 20px 10px;
   height: 150px;
   border-top: 5px solid $stepify-salmon;
   text-align: center;
@@ -19,6 +19,8 @@
   a{
     text-decoration: none;
     color: $stepify-dark-gray;
+    font-weight: bolder;
+    font-size: 18px;
   }
 }
 

@@ -4,9 +4,11 @@
 }
 
 .pin-box {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+position: absolute;
+bottom: 3px;
+right: 5%;
+display: block;
+float: right;
 }
 
 .steplist-card-body .pinned i {
