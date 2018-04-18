@@ -1,18 +1,9 @@
+<% texto = "Search results"%>
 
-<div style="background-color: #F5F7FB; ">
-
-  <div class="steplist-show-header" style="background-color: white">
-    <div class="container steplist-header-text-container">
-      <h1>Take your next step</h1>
-    </div>
-  </div>
-  <%= render 'shared/tabs_index_bootstrap_tabs' %>
-
-
-
-
-  <div class="container steplist-cards-background" style="padding-top: 40; min-height: 100vh;">
-    <div class="container steplist-cards-background" style="padding-top: 40px">
+<div class ="content-vertical-space">
+  <div class="container">
+    <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto%>
+    <div class="container steplist-cards-background" style="padding-top: 40px; background-color: #284f8a;">
       <% @steplists.each do  |steplist|%>
         <%= render 'shared/steplist_card', steplist: steplist %>
       <% end %>

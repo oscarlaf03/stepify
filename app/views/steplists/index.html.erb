@@ -1,12 +1,8 @@
-<div style="background-color: #1b3660; ">
-  <div class="">
-    <div class="container">
-      <h3 style="color: white; padding-top: 15px; padding-bottom: 15px;">Browse steplists</h3>
-    </div>
-  </div>
+<% texto = "Browse steplist"%>
+<div class ="content-vertical-space">
 
 <div class="container">
-  <%= render 'shared/tabs_index_bootstrap_tabs' %>
+  <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto %>
 
     <div class="container steplist-cards-background" style="padding-top: 40px; background-color: #284f8a;">
 
@@ -15,4 +11,5 @@
       <% end %>
     </div>
 
+</div>
 </div>

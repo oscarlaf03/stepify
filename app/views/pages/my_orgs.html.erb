@@ -1,18 +1,15 @@
-<div style="background-color: #F5F7FB; ">
-  <div class="" style="background-color: white">
-    <div class="">
-      <h2></h2>
-    </div>
-  </div>
-  <%= render 'shared/tabs_index_bootstrap_tabs' %>
+<% texto = "Company"%>
 
-  <div class="row org-card-container">
+<div class = "content-vertical-space">
+  <div class="container">
+    <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto%>
+    <div class="container steplist-cards-background" style="padding-top: 40px; background-color: #284f8a;">
     <% @my_orgs.each do |org| %>
       <%= render 'shared/org_card', org: org  %>
     <% end %>
   </div>
 </div>
-
+</div>
 
 
 

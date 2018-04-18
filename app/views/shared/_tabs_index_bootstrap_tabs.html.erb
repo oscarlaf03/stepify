@@ -1,4 +1,14 @@
+
+
+<div style="background-color: #1b3660; ">
+  <div class="">
+    <div class="container">
+      <h3 style="color: white; padding-top: 15px; padding-bottom: 15px;"><%= texto %></h3>
+    </div>
+  </div>
+
 <%if user_signed_in? %>
+
   <ul class="nav nav-tabs stepify-index">
     <li role="presentation" class="<%= current_page?(root_path)? 'active': '' %>">
       <a href='<%= root_path %>'>All Steplists</a>
@@ -10,7 +20,7 @@
       <a href='<%= my_pins_path %>'>My Pins</a>
     </li>
     <% if current_user.organizations.any? %>
-      <li role="presentation" class="<%= current_page?(my_pins_path)? 'active': '' %>">
+      <li role="presentation" class="<%= current_page?(my_orgs_path)? 'active': '' %>">
         <a href='<%= my_orgs_path %>'>My Company</a>
       </li>
     <% end %>
