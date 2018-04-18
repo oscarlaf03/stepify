@@ -1,11 +1,8 @@
 <div class="container">
-  <h1>List of organizations</h1>
-  <ul>
+  <div class="row org-card-container">
     <% @organizations.each do |org| %>
-      <li>
-        <h3><%= link_to "#{org.company_name}", organization_path(org) %></h3>
-      </li>
+      <%= render 'shared/org_card', org: org  %>
     <% end %>
-  </ul>
+  </div>
 </div>
 

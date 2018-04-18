@@ -30,7 +30,8 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    @org_steplists = policy_scope(Steplist).where(organization: @organization)
+    @public_steplists = policy_scope(Steplist).where(organization: @organization, private: false)
+    @private_steplists = policy_scope(Steplist).where(organization: @organization, private: true)
   end
 
   def index

@@ -8,5 +8,5 @@ class Steplist < ApplicationRecord
   has_many :users, through: :pins
   validates :title, presence: true
   validates :user, presence: true
-  validates :user_tags, format: { with: /#+/, message: "Include a '#' on your tags"}
+  validates :user_tags, format: { with: /(#+|^$)/, message: "Include a '#' on your tags"}
 end
