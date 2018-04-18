@@ -5,21 +5,18 @@
     </div>
   </div>
 
-
+<div class="container">
   <%= render 'shared/tabs_index_bootstrap_tabs' %>
 
-
-
-  <div class="container steplist-cards-background" style="padding-top: 40; min-height: 100vh;">
-
-    <div class="container steplist-cards-background" style="padding-top: 40px">
+    <div class="container steplist-cards-background" style="padding-top: 40px; background-color: gray;">
 
       <%  @steplists.each do  |steplist|%>
         <%=  render 'shared/steplist_card', steplist: steplist %>
       <% end %>
     </div>
-  </div>
+
 </div>
+
 
   <%= link_to "browse organizations", organizations_path, class: 'btn btn-primary btn-sm'  %>
   <%= link_to "Add new Organization", new_organization_path, class: 'btn btn-primary btn-sm'  %>
