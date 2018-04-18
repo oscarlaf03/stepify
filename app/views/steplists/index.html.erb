@@ -1,10 +1,10 @@
-<% texto = "Browse steplist"%>
+<% texto = "Browse steplists"%>
 <div class ="content-vertical-space">
 
 <div class="container">
   <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto %>
 
-    <div class="container steplist-cards-background" style= background-color: #284f8a;">
+    <div class="container steplist-cards-background" style= "background-color: #284f8a;">
 
       <%  @steplists.each do  |steplist|%>
         <%=  render 'shared/steplist_card', steplist: steplist %>
