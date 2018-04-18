@@ -38,4 +38,8 @@ class PagesController < ApplicationController
     @steplists = policy_scope(Steplist).where(user: current_user)
   end
 
+  def my_orgs
+    @my_orgs = current_user.organizations
+  end
+
 end

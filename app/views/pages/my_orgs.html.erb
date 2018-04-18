@@ -1,0 +1,20 @@
+<div style="background-color: #F5F7FB; ">
+  <div class="" style="background-color: white">
+    <div class="">
+      <h2></h2>
+    </div>
+  </div>
+  <%= render 'shared/tabs_index_bootstrap_tabs' %>
+
+  <div class="row org-card-container">
+    <% @my_orgs.each do |org| %>
+      <%= render 'shared/org_card', org: org  %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+

@@ -3,10 +3,20 @@
   border-radius: 10px;
 }
 
+.pin-box {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
 
 .steplist-card-body .pinned i {
+  color: $stepify-salmon;
   opacity: 1;
+  font-weight: bold;
 }
+
 .steplist-card-body i {
-  opacity: 0.5;
+  opacity: 0.6;
+  color: $stepify-gray;
+ font-weight: lighter;
 }

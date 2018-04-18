@@ -39,6 +39,8 @@ class OrganizationsController < ApplicationController
     @organizations = policy_scope(Organization).order(company_name: :desc)
   end
 
+
+
   private
 
   def organization_params
