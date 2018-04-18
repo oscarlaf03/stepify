@@ -5,42 +5,42 @@
       <% end %>
     </li>
 
-    <!-- Stepify if logged in ///// -->
-    <% if user_signed_in? %>
-    <!-- Links when logged in////////// -->
-
-    <li class='last'><%= link_to "My Steplists", my_lists_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    </li>
-
-    <li class='last'><%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    </li>
-    <!-- Login link (when logged out) -->
-    <% else %>
-    <li class="last">
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    </li>
-
-    <% end %>
-
-    <li class='last'><%= link_to "All Steps", steplists_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    </li>
-
-    <li class="last"><%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    </li>
-
     <li class='first'>
       <div class="search-bar">
         <%= form_tag search_path,method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control", placeholder: 'See steps for...', style: 'background-color: #565252;
-          color: rgba(0, 0, 0, 0.075);
-          border-style: none;
-          color: white;' %>
-        </div>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control", placeholder: 'See steps for...', style: 'background-color: #565252;
+            color: rgba(0, 0, 0, 0.075);
+            border-style: none;
+            color: white;' %>
         <% end %>
+      </div>
+    </li>
+    <li class='last'><%= link_to "Companies", organizations_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </li>
+
+    <!-- Stepify if logged in ///// -->
+    <% if user_signed_in? %>
+      <!-- Links when logged in////////// -->
+
+      <li class='last'><%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </li>
-    </ul>
-  </div>
+      <li class="last"><%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </li>
+      <!-- Login link (when logged out) -->
+      <% else %>
+        </li>
+        <li class='last'><%= link_to "All Steps", steplists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+        <li class="last">
+          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+    <% end %>
+
+
+
+  </ul>
+</div>
 
 
