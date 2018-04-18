@@ -3,30 +3,37 @@
 .steplist-show-header{
   background-color: white;
   // display: flex;
+  max-width: 800px;
+  border-radius: 1%;
   text-align: center;
   min-height: 150px;
+  margin-top: 40px;
+  box-shadow: 0 5px 0 gray;
+
   h2{
-    margin: 30px;
-    font-size: 50px;
-    font-weight: bond;
+    margin: 15px;
+    font-size: 30px;
+    font-weight: bolder;
+    border-bottom: solid;
+    padding-bottom: 16px;
   }
   h4{
-    margin: 30px;
+    margin: 15px;
     font-size: 18px;
   }
 }
 
 .steplist-header-text-container{
-  max-width: 450px;
+  max-width: 800px;
+  text-align: center;
 }
 
 .steplist-show-infobar{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $stepify-dark-gray;
-  color: white;
-  box-shadow: 0 3px 0 #d7e4ed;
+  max-width: 600px;
+  color: gray;
   ul{
     margin: 10px;
   }
@@ -37,4 +44,8 @@
     margin: 0px 15px;
   }
 
+}
+
+.steplist-show-wrapper{
+  background-color: #838C92;
 }
