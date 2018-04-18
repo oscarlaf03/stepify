@@ -39,12 +39,14 @@
     </div>
 
     <% if @private_steplists.any? %>
-      <h3>Internal Steplists for: <%= @organization.company_name %></h3>
-      <div class="container steplist-cards-background" style="padding-top: 40px">
-        <% @private_steplists.each do  |steplist|%>
-          <%= render 'shared/steplist_card', steplist: steplist  %>
-        <% end %>
-      </div>
+      <% if @organization.users.include?(current_user)  %>
+        <h3>Internal Steplists for: <%= @organization.company_name %></h3>
+        <div class="container steplist-cards-background" style="padding-top: 40px">
+          <% @private_steplists.each do  |steplist|%>
+            <%= render 'shared/steplist_card', steplist: steplist  %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
 
 

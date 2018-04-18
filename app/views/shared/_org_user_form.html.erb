@@ -1,0 +1,7 @@
+
+    <%= simple_form_for [@organization, org_user] do |f| %>
+      <%= f.input :user_email, label: 'User email (*Pro-tip: add several at once separated by a comma ",") ', place_holder: ''  %>
+      <%= f.input :admin, label: 'Make this user an Admin of this company  (Only for adding other users or changing company info No need of being adming to create and see steplists )', as: :boolean, checked_value: true, unchecked_value: false%>
+      <%= f.submit  class: 'btn btn-success btn-lg' %>
+    <% end %>
+

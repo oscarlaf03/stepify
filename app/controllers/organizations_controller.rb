@@ -21,6 +21,7 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
+    @org_user = OrganizationUser.new
   end
 
   def update
