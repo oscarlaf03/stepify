@@ -14,9 +14,10 @@
 
 .bootstrap-tabs .active {
   li {
+    background-color: $stepify-salmon!important;
     a {
       font-size: 39px;
-      background-color: $stepify-salmon;
+
     }
   }
 }
