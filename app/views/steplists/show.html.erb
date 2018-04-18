@@ -1,86 +1,74 @@
 
 <div class="steplist-show-wrapper">
+
   <div class="container" style="display: flex;
   justify-content: center;">
-<!-- Steplist header -->
-<div class="steplist-show-header" style="background-color: white">
-  <div class="container steplist-header-text-container" style="display: flex;
-  justify-content: center;">
-  <div style= 'max-width: 600px; text-align: center;'>
-    <h2><%= @steplist.title %></h2>
-    <p> Created by: <strong><%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></strong></p>
-    <h4><%= @steplist.description %></h4>
-  <div class = "steplist-show-infobar">
-    <ul>
-      <li>Completion: <%= @steplist.id  %></li>
-      <li>Last edited: <%= @steplist.updated_at.strftime("%d/%m/%Y") %></li>
-      <li>Total Steps: <%= @steplist.steps.count  %></li>
-    </ul>
+  <!-- Steplist header -->
+  <div class="steplist-show-header" style="background-color: white">
+    <div class="container steplist-header-text-container" style="display: flex;
+    justify-content: center;">
+    <div style= 'max-width: 600px; text-align: center;'>
+      <h2><%= @steplist.title %></h2>
+      <p> Created by: <strong><%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></strong>  |  Last edited: <strong><%= @steplist.updated_at.strftime("%d/%m/%Y") %></strong></p>
+      <h4><%= @steplist.description %></h4>
+          <p>Total Steps: <%= @steplist.steps.count  %></p>
+          <% if @steplist.tag_names.any?  %>
+
+  <% @steplist.tag_names.each do |tag| %>
+  <p class="btn btn-primary btn-xs"> <%="##{tag}"%></p>
+  <% end %>
+<% end %>
+    </div>
   </div>
-  </div>
-</div>
 </div>
 </div>
 
 <!-- STEPLIST INFO BAR -->
 
-  <% if @steplist.tag_names.any?  %>
-    <ul>
-      <% @steplist.tag_names.each do |tag| %>
-        <li> <%="##{tag}"%></li>
-      <% end %>
-     </ul>
-  <% end %>
 
-<div style="background-color: #838C92;">
+
+<div style="background-color: #3767AF;">
   <!-- RENDER LÍNEA DE TIEMPO -->
   <section id="cd-timeline" class="cd-container">
     <% @steplist.steps.order(created_at: :asc).each do |step|  %>
-      <%= render 'shared/step_card', step: step %>
+    <%= render 'shared/step_card', step: step %>
     <% end %>
     <!-- END OR ADD ICON AND LINE  -->
 
   </section>
   <!-- NEW STEP FORM   -->
 
-    <% if current_user == @steplist.user %>
-      <div class="cd-timeline-block" onclick="myFunction()">
-        <div class="cd-timeline-img cd-add fadeIn ">
-          <i class="fa fa-plus plus-icon"" id="center-icon"></i>
-        </div>
-      </div>
-      <% else %>
-      <div class="cd-timeline-block" onclick="myFunction()">
-        <div class="cd-timeline-img cd-end fadeIn ">
-        </div>
-      </div>
-    <%end%>
-    <div class="container fadeIn" style="width: 300px">
-  <div id="new-step-form" class="fadeIn">
+  <% if current_user == @steplist.user %>
+  <div class="cd-timeline-block" onclick="myFunction()">
+    <div class="cd-timeline-img cd-add fadeIn ">
+      <i class="fa fa-plus plus-icon"" id="center-icon"></i>
+    </div>
+  </div>
+  <% else %>
+  <div class="cd-timeline-block" onclick="myFunction()">
+    <div class="cd-timeline-img cd-end fadeIn ">
+    </div>
+  </div>
+  <%end%>
+  <div class="container fadeIn" style="width: 300px">
+    <div id="new-step-form" class="fadeIn">
+      <h4>Add a Step to your steplist</h4>
       <% if current_user == @steplist.user %>
-        <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
+      <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
       <% end %>
     </div>
   </div>
 
   <script>
-  function myFunction() {
+    function myFunction() {
       var x = document.getElementById("new-step-form");
       if (x.style.display === "none") {
-          x.style.display = "block";
+        x.style.display = "block";
       } else {
-          x.style.display = "none";
+        x.style.display = "none";
       }
-  }
+    }
   </script>
-
-  <!-- STEP POPUPS  -->
-
 </div>
-
-<div class="steplist-show-header" style="background-color: white">
-
-</div>
-
 </div>
 </div>

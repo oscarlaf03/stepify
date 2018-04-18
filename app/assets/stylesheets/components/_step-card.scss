@@ -56,5 +56,9 @@ body{
 
 .step-numerator::before{
     counter-increment: section;
-    content: counter(section) ") ";
+    content: counter(section) ". ";
+    font-weight: bolder;
+    color: #3767AF;
+    text-align: center;
+    font-size: 20px;
 }

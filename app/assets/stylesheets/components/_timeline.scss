@@ -207,10 +207,10 @@ Main components
   background: #ffffff;
   border-radius: 0.25em;
   // padding: 1em;
-  box-shadow: 0 3px 0 gray;
+  box-shadow: 0 3px 0 $stepify-dark-gray;
   min-width: 150px;
   &:hover{
-    background: #F0F0F0;
+    background: #C2E1FF;
     color: white;
   }
 }

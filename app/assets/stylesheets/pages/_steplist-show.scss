@@ -8,8 +8,8 @@
   text-align: center;
   min-height: 150px;
   margin-top: 40px;
-  box-shadow: 0 5px 0 gray;
-
+  box-shadow: 0 5px 0 $stepify-dark-gray;
+  padding: 15px;
   h2{
     margin: 15px;
     font-size: 30px;
@@ -47,5 +47,5 @@
 }
 
 .steplist-show-wrapper{
-  background-color: #838C92;
+  background-color: #3767AF;
 }
