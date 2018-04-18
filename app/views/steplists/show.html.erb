@@ -11,12 +11,13 @@
       <h2><%= @steplist.title %></h2>
       <p> Created by: <strong><%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></strong>  |  Last edited: <strong><%= @steplist.updated_at.strftime("%d/%m/%Y") %></strong></p>
       <h4><%= @steplist.description %></h4>
-      <div class = "steplist-show-infobar">
-        <ul>
+          <p>Total Steps: <%= @steplist.steps.count  %></p>
+          <% if @steplist.tag_names.any?  %>
 
-          <li>Total Steps: <%= @steplist.steps.count  %></li>
-        </ul>
-      </div>
+  <% @steplist.tag_names.each do |tag| %>
+  <p class="btn btn-primary btn-xs"> <%="##{tag}"%></p>
+  <% end %>
+<% end %>
     </div>
   </div>
 </div>
@@ -24,13 +25,7 @@
 
 <!-- STEPLIST INFO BAR -->
 
-<% if @steplist.tag_names.any?  %>
-<ul>
-  <% @steplist.tag_names.each do |tag| %>
-  <li> <%="##{tag}"%></li>
-  <% end %>
-</ul>
-<% end %>
+
 
 <div style="background-color: #3767AF;">
   <!-- RENDER LÍNEA DE TIEMPO -->
