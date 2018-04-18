@@ -1,23 +1,28 @@
 
+<div class="steplist-show-wrapper">
+  <div class="container" style="display: flex;
+  justify-content: center;">
 <!-- Steplist header -->
 <div class="steplist-show-header" style="background-color: white">
-  <div class="container steplist-header-text-container">
+  <div class="container steplist-header-text-container" style="display: flex;
+  justify-content: center;">
+  <div style= 'max-width: 600px; text-align: center;'>
     <h2><%= @steplist.title %></h2>
+    <p> Created by: <strong><%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></strong></p>
     <h4><%= @steplist.description %></h4>
+  <div class = "steplist-show-infobar">
+    <ul>
+      <li>Completion: <%= @steplist.id  %></li>
+      <li>Last edited: <%= @steplist.updated_at.strftime("%d/%m/%Y") %></li>
+      <li>Total Steps: <%= @steplist.steps.count  %></li>
+    </ul>
   </div>
+  </div>
+</div>
+</div>
 </div>
 
 <!-- STEPLIST INFO BAR -->
-
-
-<div class = "steplist-show-infobar">
-  <ul>
-    <li>Author: <%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></li>
-    <li>Completion: <%= @steplist.id  %></li>
-    <li>Last edited: <%= @steplist.updated_at.strftime("%d/%m/%Y") %></li>
-    <li>Total Steps: <%= @steplist.steps.count  %></li>
-  </ul>
-</div>
 
   <% if @steplist.tag_names.any?  %>
     <ul>
@@ -75,4 +80,7 @@
 
 <div class="steplist-show-header" style="background-color: white">
 
+</div>
+
+</div>
 </div>
