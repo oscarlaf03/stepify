@@ -38,10 +38,11 @@
         </div>
 
         <div>
-          <% if user_signed_in?  %>
-          <% if steplist.private? %>
-          <p class="private-icon">Private for <%= @organization.company_name.capitalize %></p>
-          <% end %>
+          <% if user_signed_in? %>
+            <% if steplist.private? && steplist.organization.present? %>
+              <p class="private-icon">Private for <%= steplist.organization.company_name.capitalize %>
+              </p>
+            <% end %>
           <% end %>
         </div>
 
