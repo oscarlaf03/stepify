@@ -24,9 +24,6 @@
   height: 250px;
   min-height: 80px;
   overflow: hidden;
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%
 }
 
 .organization-logo-container{
@@ -47,12 +44,10 @@
 }
 
 .organization-banner-img{
-  // position: absolute;
-  // top: -9999px;
-  // left: -9999px;
-  // right: -9999px;
-  // bottom: -9999px;
-  // margin: auto;
+  flex-shrink: 0;
+  min-width: 100%;
+    min-height: 100%;
+    background-position: center center;
 }
 .organization-subtitle{
   color: white;

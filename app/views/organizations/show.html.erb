@@ -43,12 +43,12 @@
         <div class="container">
           <div class="row">
             <% if @public_steplists.any? %>
-            <h4 class="organization-subtitle">Steplists for: <%= @organization.company_name %></h4>
+            <h4 class="organization-subtitle">Public steplists for: <%= @organization.company_name %></h4>
             <% @public_steplists.each do  |steplist|%>
             <%= render 'shared/steplist_card', steplist: steplist  %>
             <% end %>
             <% else %>
-            <h4 class="organization-subtitle">Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h4>
+            <h4 class="organization-subtitle">Be the first one to add a steplist for: "<%= @organization.company_name %>"</h4>
             <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-sm'  %>
             <%end%>
           </div>
