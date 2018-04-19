@@ -1,10 +1,6 @@
-.org-card-container{
-  margin:10px;
-  padding: 15px;
-}
 
 .org-card {
-  min-width: 300px;
+  min-width: 200px;
   border-top: 5px solid $stepify-salmon;
   text-align: center;
   box-shadow: 0 3px 0 #d7e4ed;
@@ -15,6 +11,13 @@
   background: #ffffff;
   border-radius: 0.25em;
   margin: 10px;
+  text-align: center;
+  h2{
+    margin-top: 15px;
+  }
+  h6{
+    padding-bottom: 20px;
+  }
 }
 
 .card-category {
@@ -51,13 +54,12 @@
 
 .org-thumbnail {
   position: relative;
-  max-width: 120px;
-  max-height: 120px;
-  min-width: 80px;
-  min-height:80px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   border: none;
-  margin: 15px 5px;
+  text-align:center;
+  padding-top:25px;
 }
 .org-thumbnail img {
   position: absolute;
@@ -75,3 +77,8 @@
   height: auto;
 }
 
+.org-logo-row{
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
