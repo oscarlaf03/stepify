@@ -40,8 +40,8 @@
   <div class="container fadeIn" style="width: 300px">
     <div id="new-step-form" class="fadeIn">
       <div class="form-login">
-      <h4>Add a Step to your steplist</h4>
       <% if current_user == @steplist.user %>
+            <h4>Add a step to your steplist</h4>
       <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
       <% end %>
     </div>
