@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-  <div class="steplist-card-block" >
-    <div class="steplist-card">
+  <div class="steplist-card-block">
+    <div class="steplist-card" >
       <div class="steplist-card-body">
         <div>
           <p class="author-name"> <strong>By:</strong>
@@ -8,9 +8,11 @@
           </p>
         </div>
 
+        <%= link_to steplist_path(steplist) do %>
         <strong><h5 class="steplist-title-card">
-          <%= link_to "#{steplist.title.truncate(40)}",steplist_path(steplist) %>
+          <%= "#{steplist.title.truncate(28)}" %>
         </h5></strong>
+        <% end %>
         <h6 class="steplist-card-steps">
           <%= link_to "#{steplist.steps.count} steps",steplist_path(steplist) %>
         </h6>
