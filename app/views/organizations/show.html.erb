@@ -5,65 +5,52 @@
 <% logo_path = "https://png.icons8.com/ios/1600/company.png" %>
 <% end %>
 
-
 <% if @organization.image_banner.present? %>
 <% banner_path = cl_image_path @organization.image_banner %>
 <% else %>
 <% banner_path = 'http://res.cloudinary.com/dkkvtcelc/image/upload/v1523819608/cover_example.jpg' %>
 <% end %>
 
-
-    <div class="banner organization-banner-container" >
-      <%= image_tag banner_path, class: "organization-banner-img" %>
-    </div>
-
-
-<div style="min-height: 100vh">
+<% texto = "#{@organization.company_name}"%>
+<div class = "content-vertical-space">
   <div class="container">
-    <div class="organization-header">
-      <div class="organization-logo-container">
-        <div> <%= image_tag logo_path, class: "organization-logo" %></div>
+    <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto%>
+    <div class="container steplist-cards-background" style="padding-top: 40px; background-color: #284f8a;">
+      <div class="banner organization-banner-container" >
+        <%= image_tag banner_path, class: "organization-banner-img" %>
       </div>
-
+      <div style="min-height: 100vh">
+        <div class="organization-header">
+          <div class="organization-logo-container">
+            <div> <%= image_tag logo_path, class: "organization-logo" %></div>
+          </div>
+        </div>
       </div>
-      <%= render 'shared/tabs_index_bootstrap_tabs' %>
-
-      <div class="organization-button-container">
-      <%= link_to 'Back to organizations', organizations_path, class: 'btn btn-primary btn-xs'%>
       <% if @organization.users.include?(current_user) && OrganizationUser.find_by(organization: @organization, user: @user).admin? %>
         <%= link_to 'Edit Companyinfo', edit_organization_path(@organization), class: 'btn btn-primary btn-xs'%>
       <% end %>
       <% if @organization.users.include?(current_user) %>
         <%= link_to "Add Step to this organization", new_steplist_path, class: 'btn btn-success btn-xs'  %>
       <% end %>
-    </div>
-
-    <% if @private_steplists.any? %>
-      <% if @organization.users.include?(current_user)  %>
-        <h3>Internal Steplists for: <%= @organization.company_name %></h3>
-        <div class="container steplist-cards-background" style="padding-top: 40px">
-          <% @private_steplists.each do  |steplist|%>
+      <% if @private_steplists.any? %>
+        <% if @organization.users.include?(current_user)  %>
+          <h3>Internal Steplists for: <%= @organization.company_name %></h3>
+            <% @private_steplists.each do  |steplist|%>
+              <%= render 'shared/steplist_card', steplist: steplist  %>
+            <% end %>
+        <% end %>
+      <% end %>
+      <!-- DISPLAY COMPANY STEPLISTS -->
+      <% if @public_steplists.any? %>
+        <h3>Steplists for: <%= @organization.company_name %></h3>
+          <% @public_steplists.each do  |steplist|%>
             <%= render 'shared/steplist_card', steplist: steplist  %>
           <% end %>
-        </div>
-      <% end %>
-    <% end %>
-
-
-
-    <!-- DISPLAY COMPANY STEPLISTS -->
-
-    <% if @public_steplists.any? %>
-      <h3>Steplists for: <%= @organization.company_name %></h3>
-      <div class="container steplist-cards-background" style="padding-top: 40px">
-        <% @public_steplists.each do  |steplist|%>
-          <%= render 'shared/steplist_card', steplist: steplist  %>
-        <% end %>
-      </div>
-      <% else %>
-      <h2>Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h2>
-      <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-sm'  %>
-    <%end%>
+        <% else %>
+        <h2>Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h2>
+        <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-sm'  %>
+      <%end%>
+    </div>
   </div>
 </div>
 
