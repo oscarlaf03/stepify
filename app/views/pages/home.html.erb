@@ -1,18 +1,11 @@
-<% @steplists = Steplist.all %>
-
-<div class="container" >
-<h1>Pages#home</h1>
-<h2>Where all Stpelists live</h2>
-<h3>Total steplists: <%= Steplist.count %></h3>
-
-<ul>
-  <% @steplists.each do  |steplist|%>
-    <li>
-      <%= link_to "#{steplist.title}",steplist_path(steplist) %>
-    </li>
-  <% end %>
-</ul>
-
+<div class = "row main-banner">
+  <div class="container home-banner-container">
+    <%= image_tag "logo4.png", class: "home-logo"%>
+    <h3 class="dashboard-text">Share knowledge, step by step.</h3>
+    <%= link_to "Take your first step now", steplists_path, class: "btn btn-success home-banner-button" %>
+    </div>
+  </div>
+</div>
 
  <%= link_to "Crate new steplist", new_steplist_path, class: 'btn btn-success btn-lg' %>
 </div>
