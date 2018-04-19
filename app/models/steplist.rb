@@ -1,7 +1,6 @@
 class Steplist < ApplicationRecord
   Gutentag::ActiveRecord.call self
 
-  attr_accessor :info_tag
   belongs_to :user
   belongs_to :organization, optional: true
   has_many :steps, dependent: :destroy
@@ -10,7 +9,8 @@ class Steplist < ApplicationRecord
   validates :title, presence: true
   validates :user, presence: true
   validates :user_tags, format: { with: /(#+|^$)/, message: "Include a '#' on your tags"}
-  after_create :add_tags
+
+  before_save :add_tags
   before_update :update_tags
 
   private
@@ -19,7 +19,6 @@ class Steplist < ApplicationRecord
     if user_tags.present?
       user_tags.split('#').each do |tag|
         tag_names << tag.strip.downcase
-        save
       end
     end
   end
