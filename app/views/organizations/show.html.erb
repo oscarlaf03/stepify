@@ -15,12 +15,15 @@
 
 <% texto = "#{@organization.company_name}"%>
 <div class = "content-vertical-space">
-  <div class="container">
+
     <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto%>
-    <div class="container steplist-cards-background" style="padding-top: 40px; background-color: #284f8a;">
-      <div class="banner organization-banner-container" >
-        <%= image_tag banner_path, class: "organization-banner-img" %>
-      </div>
+
+    <div class="container steplist-cards-background" style="padding: 0px; background-color: #284f8a;">
+        <div class="org-banner">
+          <%= image_tag banner_path, class: "portrait" %>
+        </div>
+      <div class="container">
+
 
       <div style="min-height: 100vh">
         <div class="organization-header">
@@ -41,7 +44,7 @@
         <div class="container">
           <div class="row">
             <% if @public_steplists.any? %>
-            <h4 class="organization-subtitle">Public steplists for: <%= @organization.company_name %></h4>
+            <h4 class="organization-subtitle">Public steplists for <%= @organization.company_name %></h4>
             <% @public_steplists.each do  |steplist|%>
             <%= render 'shared/steplist_card', steplist: steplist  %>
             <% end %>
