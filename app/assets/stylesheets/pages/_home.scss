@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+.main-banner{
+  height: 50vh;
+  background: linear-gradient(to right, #1C3660 500%, #284F8A 100%);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.home-banner-container{
+
+    text-align: center;
+  justify-content: center;
+}
+
+.home-banner-button{
+  background-color: $stepify-salmon;
+  border: none;
+  margin: 20px;
+  &:hover{
+    background-color: $stepify-dark-salmon;
+  }
+}
+
+.home-logo{
+  margin-top: 20px;
+}
