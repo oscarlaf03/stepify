@@ -1,14 +1,13 @@
 
-
 .steplist-show-header{
   background-color: white;
   // display: flex;
-  max-width: 800px;
+  max-width: 620px;
   border-radius: 1%;
   text-align: center;
   min-height: 150px;
   margin-top: 40px;
-  box-shadow: 0 5px 0 $stepify-dark-gray;
+  box-shadow: 0 5px 0 $stepify-gray;
   padding: 15px;
   h2{
     margin: 15px;
@@ -24,15 +23,16 @@
 }
 
 .steplist-header-text-container{
-  max-width: 800px;
+  max-width: 600px;
   text-align: center;
+  margin-left: -5px;
 }
 
 .steplist-show-infobar{
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 600px;
+  max-width: 610px;
   color: gray;
   ul{
     margin: 10px;

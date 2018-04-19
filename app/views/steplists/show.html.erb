@@ -1,30 +1,31 @@
-  <div class="container" style="display: flex;
-  justify-content: center;">
+
+<div style="background-color: #1C375D;">
+<div class="container" style="display: flex; justify-content: center; ">
+
   <!-- Steplist header -->
   <div class="steplist-show-header" style="background-color: white">
-    <div class="container steplist-header-text-container" style="display: flex;
-    justify-content: center;">
-    <div style= 'max-width: 600px; text-align: center;'>
-      <h2><%= @steplist.title %></h2>
-      <p> Created by: <strong><%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></strong>  |  Last edited: <strong><%= @steplist.updated_at.strftime("%d/%m/%Y") %></strong></p>
-      <h4><%= @steplist.description %></h4>
-          <p>Total Steps: <%= @steplist.steps.count  %></p>
-          <% if @steplist.tag_names.any?  %>
+    <div class="container steplist-header-text-container" style="display: flex; justify-content: center;">
+      <div style= 'max-width: 600px; text-align: center;'>
+        <h2><%= @steplist.title %></h2>
+        <p> Created by: <strong><%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></strong>  |  Last edited: <strong><%= @steplist.updated_at.strftime("%d/%m/%Y") %></strong></p>
+        <h4><%= @steplist.description %></h4>
+        <p>Total Steps: <%= @steplist.steps.count  %></p>
+        <% if @steplist.tag_names.any?  %>
 
-  <% @steplist.tag_names.each do |tag| %>
-  <p class="btn btn-primary btn-xs"> <%="##{tag}"%></p>
-  <% end %>
-<% end %>
+        <% @steplist.tag_names.each do |tag| %>
+        <p class="btn btn-primary btn-xs"> <%="##{tag}"%></p>
+        <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- STEPLIST INFO BAR -->
 
 
 
-<div style="background-color: #3767AF;">
+
   <!-- RENDER LÍNEA DE TIEMPO -->
   <section id="cd-timeline" class="cd-container">
     <% @steplist.steps.order(created_at: :asc).each do |step|  %>
