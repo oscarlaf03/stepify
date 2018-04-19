@@ -11,7 +11,7 @@
 <% banner_path = 'http://res.cloudinary.com/dkkvtcelc/image/upload/v1523819608/cover_example.jpg' %>
 <% end %>
 
-      <!-- DISPLAY COMPANY STEPLISTS -->
+<!-- DISPLAY COMPANY STEPLISTS -->
 
 
 
@@ -36,37 +36,34 @@
         <%= link_to 'Edit company info', edit_organization_path(@organization), class: 'btn btn-primary btn-xs'%>
         <% end %>
 
-      <% if @organization.users.include?(current_user) %>
+        <% if @organization.users.include?(current_user) %>
         <%= link_to "Add steplists to this organization", new_steplist_path, class: 'btn btn-success btn-xs'  %>
-      <% end %>
-
-<div class="container">
-<div class="row">
-        <% if @public_steplists.any? %>
-        <h4>Steplists for: <%= @organization.company_name %></h4>
-          <% @public_steplists.each do  |steplist|%>
-            <%= render 'shared/steplist_card', steplist: steplist  %>
-          <% end %>
-        <% else %>
-        <h4>Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h4>
-        <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-sm'  %>
-      <%end%>
-</div>
-
-          <hr>
-
-<div class="row">
-      <% if @private_steplists.any? %>
-        <% if @organization.users.include?(current_user)  %>
-          <h4>Private Steplists for <strong> <%= @organization.company_name %></<h4></h4></strong>
-            <% @private_steplists.each do  |steplist|%>
-              <%= render 'shared/steplist_card', steplist: steplist  %>
-            <% end %>
         <% end %>
-      <% end %>
-</div>
 
-</div>
+        <div class="container">
+          <div class="row">
+            <% if @public_steplists.any? %>
+            <h4 class="organization-subtitle">Steplists for: <%= @organization.company_name %></h4>
+            <% @public_steplists.each do  |steplist|%>
+            <%= render 'shared/steplist_card', steplist: steplist  %>
+            <% end %>
+            <% else %>
+            <h4 class="organization-subtitle">Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h4>
+            <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-sm'  %>
+            <%end%>
+          </div>
+
+          <div class="row">
+            <% if @private_steplists.any? %>
+            <% if @organization.users.include?(current_user)  %>
+            <h4 class="organization-subtitle">Private Steplists for <strong> <%= @organization.company_name %></<h4></h4></strong>
+            <% @private_steplists.each do  |steplist|%>
+            <%= render 'shared/steplist_card', steplist: steplist  %>
+            <% end %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
