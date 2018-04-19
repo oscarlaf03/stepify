@@ -2,45 +2,49 @@
   <div class="steplist-card-block" >
     <div class="steplist-card">
       <div class="steplist-card-body">
-<div>
-        <p class="author-name"> <strong>By:</strong>
-          <%= "#{steplist.user.first_name.capitalize.truncate(20)} #{steplist.user.last_name.capitalize}" %>
-        </p>
-</div>
+        <div>
+          <p class="author-name"> <strong>By:</strong>
+            <%= "#{steplist.user.first_name.capitalize.truncate(20)} #{steplist.user.last_name.capitalize}" %>
+          </p>
+        </div>
 
-        <strong><h5 class="steplist-card-title">
+        <strong><h5 class="steplist-title-card">
           <%= link_to "#{steplist.title.truncate(40)}",steplist_path(steplist) %>
         </h5></strong>
+        <h6 class="steplist-card-steps">
+          <%= link_to "#{steplist.steps.count} steps",steplist_path(steplist) %>
+        </h6>
 
 
 
-<div class="pin-box">
+        <div class="pin-box">
 
-        <% if  user_signed_in?  %>
+          <% if  user_signed_in?  %>
           <% if current_user.pinned?(steplist) %>
-            <div class="pin-box">
-              <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}", class: 'pinned' do %>
-                <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;" ></i>
-              <% end %>
-            </div>
+          <div class="pin-box">
+            <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}", class: 'pinned' do %>
+            <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;" ></i>
+            <% end %>
+          </div>
           <% else %>
           <div class="pin-box">
             <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}" do %>
-              <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;"></i>
+            <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;"></i>
             <% end %>
           </div>
           <% end %>
-        <% end %>
+          <% end %>
 
-</div>
+        </div>
 
-    <div>
-      <% if user_signed_in?  %>
-      <% if steplist.private? %>
-        <i class="fa fa-heart fa-xs " aria-hidden="true" style="font-size: 20px;"></i>
+        <div>
+          <% if user_signed_in?  %>
+          <% if steplist.private? %>
+          <p class="private-icon">Private for <%= @organization.company_name.capitalize %></p>
           <% end %>
           <% end %>
-          </div>
+        </div>
+
       </div>
     </div>
   </div>
