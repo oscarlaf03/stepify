@@ -18,7 +18,7 @@ class Steplist < ApplicationRecord
   def add_tags
     if user_tags.present?
       user_tags.split('#').each do |tag|
-        tag_names << tag.strip.downcase
+        tag_names << tag.strip.downcase if tag.present?
       end
     end
   end
@@ -26,7 +26,7 @@ class Steplist < ApplicationRecord
   def update_tags
     if user_tags.present?
       user_tags.split('#').each do |tag|
-        tag_names << tag.strip.downcase
+        tag_names << tag.strip.downcase if tag.present?
       end
     end
   end
