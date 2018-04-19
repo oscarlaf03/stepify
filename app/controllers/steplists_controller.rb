@@ -67,7 +67,7 @@ class SteplistsController < ApplicationController
   end
 
   def steplist_params
-    params.require(:steplist).permit(:title, :description, :user_tags, :private ,info_tag:[])
+    params.require(:steplist).permit(:title, :description, :user_tags, :private)
   end
 
   def set_user

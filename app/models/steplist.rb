@@ -11,7 +11,7 @@ class Steplist < ApplicationRecord
   validates :user, presence: true
   validates :user_tags, format: { with: /(#+|^$)/, message: "Include a '#' on your tags"}
   after_create :add_tags
-  around_update :update_tags
+  before_update :update_tags
 
   private
 
