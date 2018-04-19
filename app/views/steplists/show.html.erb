@@ -36,24 +36,15 @@
   </section>
   <!-- NEW STEP FORM   -->
 
-  <% if current_user == @steplist.user %>
-  <div class="cd-timeline-block" onclick="myFunction()">
-    <div class="cd-timeline-img cd-add fadeIn ">
-      <i class="fa fa-plus plus-icon"" id="center-icon"></i>
-    </div>
-  </div>
-  <% else %>
-  <div class="cd-timeline-block" onclick="myFunction()">
-    <div class="cd-timeline-img cd-end fadeIn ">
-    </div>
-  </div>
-  <%end%>
+
   <div class="container fadeIn" style="width: 300px">
-    <div id="new-step-form" class="fadeIn color-text">
-      <h4>Add a Step to your steplist</h4>
+    <div id="new-step-form" class="fadeIn">
+      <div class="form-login">
       <% if current_user == @steplist.user %>
+            <h4>Add a step to your steplist</h4>
       <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
       <% end %>
+    </div>
     </div>
   </div>
 

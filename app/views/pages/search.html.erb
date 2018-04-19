@@ -4,7 +4,7 @@
   <div class="container">
     <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto%>
     <div class="container steplist-cards-background" style="padding-top: 40px; background-color: #284f8a;">
-      <p>
+      <p id="search-message">
         Your search for: "<%=params[:query]%>" produced <%= @steplists.count  %> results
       </p>
       <% @steplists.each do  |steplist|%>

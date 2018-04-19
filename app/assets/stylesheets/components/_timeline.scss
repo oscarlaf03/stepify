@@ -43,7 +43,7 @@ Main components
   position: absolute;
   top: 0;
   left: 18px;
-  height: 98%;
+  height: 100%;
   width: 4px;
   background: white;
 }
@@ -62,7 +62,6 @@ Main components
 .cd-timeline-block {
   position: relative;
   margin: 2em 0;
-
 }
 .cd-timeline-block::after {
   clear: both;
