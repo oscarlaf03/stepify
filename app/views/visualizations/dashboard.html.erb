@@ -2,7 +2,7 @@
   <div class="container">
     <%= render 'shared/tabs_index_bootstrap_tabs', texto: "Dashboard for: #{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
     <div class="container steplist-cards-background" style= "background-color: #284f8a;">
-      <table class="table color-text">
+      <table class="table" id= "dashboard-text">
         <tr>
           <th>
             Steps visited
