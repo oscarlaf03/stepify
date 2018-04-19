@@ -6,20 +6,32 @@
 <% logo_path = "https://png.icons8.com/ios/1600/company.png" %>
 <% end %>
 
+<a class="card-link" href="<%= organization_path(org)%>">
 
 
 
-    <div class="col-xs-12 col-sm-4">
-      <% #cl_image_path org.logo %>
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
-      <div class="org-card" >
-        <div class="card-category"></div>
-        <div class="card-description">
-          <h2><%= org.company_name %></h2>
-          <p> <%= org.steplists.where(private: false).count %> Public steplists </p>
+    <div class="org-card ">
+      <div class="steplist-card-body">
+
+
+<div class="col-xs-12 col-sm-6" style="text-align: center;">
+        <div class="org-thumbnail">
+          <%= image_tag logo_path, class: "portrait" %>
         </div>
-        <img class="card-org-logo" src="<%= logo_path %>">
-        <a class="card-link" href="<%= organization_path(org)%>" ></a>
       </div>
 
+      <div class="col-xs-12 col-sm-6">
+        <div class="org-card-description">
+          <h2 ><%= org.company_name %></h2>
+          <h6 class="steplist-card-steps"> <%= org.steplists.where(private: false).count %> Public steplists </h6>
+        </div>
+      </div>
+
+      </div>
     </div>
+
+</div>
+
+</a>
