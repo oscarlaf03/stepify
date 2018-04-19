@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :visualized_steps, through: :visualizations, source: :step
   has_many :organization_users
   has_many :organizations, through: :organization_users
-  has_many :pins
+  has_many :pins, dependent: :destroy
   has_many :steplists, through: :pins, as: :pinned_steplists
   validates :first_name, :last_name, presence: true
 
