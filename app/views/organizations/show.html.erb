@@ -11,6 +11,10 @@
 <% banner_path = 'http://res.cloudinary.com/dkkvtcelc/image/upload/v1523819608/cover_example.jpg' %>
 <% end %>
 
+      <!-- DISPLAY COMPANY STEPLISTS -->
+
+
+
 <% texto = "#{@organization.company_name}"%>
 <div class = "content-vertical-space">
   <div class="container">
@@ -19,37 +23,51 @@
       <div class="banner organization-banner-container" >
         <%= image_tag banner_path, class: "organization-banner-img" %>
       </div>
+
       <div style="min-height: 100vh">
         <div class="organization-header">
           <div class="organization-logo-container">
             <div> <%= image_tag logo_path, class: "organization-logo" %></div>
           </div>
         </div>
-      </div>
-      <% if @organization.users.include?(current_user) && OrganizationUser.find_by(organization: @organization, user: @user).admin? %>
-        <%= link_to 'Edit Companyinfo', edit_organization_path(@organization), class: 'btn btn-primary btn-xs'%>
-      <% end %>
+
+
+        <% if @organization.users.include?(current_user) && OrganizationUser.find_by(organization: @organization, user: @user).admin? %>
+        <%= link_to 'Edit company info', edit_organization_path(@organization), class: 'btn btn-primary btn-xs'%>
+        <% end %>
+
       <% if @organization.users.include?(current_user) %>
-        <%= link_to "Add Step to this organization", new_steplist_path, class: 'btn btn-success btn-xs'  %>
+        <%= link_to "Add steplists to this organization", new_steplist_path, class: 'btn btn-success btn-xs'  %>
       <% end %>
+
+<div class="container">
+<div class="row">
+        <% if @public_steplists.any? %>
+        <h4>Steplists for: <%= @organization.company_name %></h4>
+          <% @public_steplists.each do  |steplist|%>
+            <%= render 'shared/steplist_card', steplist: steplist  %>
+          <% end %>
+        <% else %>
+        <h4>Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h4>
+        <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-sm'  %>
+      <%end%>
+</div>
+
+          <hr>
+
+<div class="row">
       <% if @private_steplists.any? %>
         <% if @organization.users.include?(current_user)  %>
-          <h3>Internal Steplists for: <%= @organization.company_name %></h3>
+          <h4>Private Steplists for <strong> <%= @organization.company_name %></<h4></h4></strong>
             <% @private_steplists.each do  |steplist|%>
               <%= render 'shared/steplist_card', steplist: steplist  %>
             <% end %>
         <% end %>
       <% end %>
-      <!-- DISPLAY COMPANY STEPLISTS -->
-      <% if @public_steplists.any? %>
-        <h3>Steplists for: <%= @organization.company_name %></h3>
-          <% @public_steplists.each do  |steplist|%>
-            <%= render 'shared/steplist_card', steplist: steplist  %>
-          <% end %>
-        <% else %>
-        <h2>Be the firstone to add a steplist for: "<%= @organization.company_name %>"</h2>
-        <%= link_to "Add Step", new_steplist_path, class: 'btn btn-success btn-sm'  %>
-      <%end%>
+</div>
+
+</div>
+      </div>
     </div>
   </div>
 </div>

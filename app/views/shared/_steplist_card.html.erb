@@ -31,8 +31,16 @@
           </div>
           <% end %>
         <% end %>
+
 </div>
 
+    <div>
+      <% if user_signed_in?  %>
+      <% if steplist.private? %>
+        <i class="fa fa-heart fa-xs " aria-hidden="true" style="font-size: 20px;"></i>
+          <% end %>
+          <% end %>
+          </div>
       </div>
     </div>
   </div>
