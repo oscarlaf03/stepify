@@ -24,13 +24,8 @@ class SteplistsController < ApplicationController
     if params[:steplist][:organization].present?
       @steplist.organization = Organization.find(params[:steplist][:organization])
     end
-    if @steplist.user_tags.present?
-      @steplist.user_tags.split('#').each do |tag|
-        @steplist.tag_names << tag.strip.downcase
-        @steplist.save
-      end
-    end
     if @steplist.save
+
       redirect_to steplist_path(@steplist)
     else
       render :new
