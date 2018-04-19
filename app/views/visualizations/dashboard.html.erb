@@ -1,53 +1,49 @@
-<div class="wrapper">
+<div class ="content-vertical-space">
   <div class="container">
-    <%= render 'shared/tabs_index_bootstrap_tabs' %>
-
-    <h2><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize} Dashboard"%></h2>
-
-    <table class="table"g
-      <tr>
-        <th>
-          Steps visited
-        </th>
-        <td>
-          <%=  @my_views.count %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Steps visualizations
-        </th>
-        <td>
-          <%= @my_views_sum  %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          My created Steplists
-        </th>
-        <td>
-          <%= @my_steplists.count  %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Mi visualized created steplists
-        </th>
-        <td>
-          <%= @my_seen_steplists  %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Total visualizations of my Steplists
-        </th>
-        <td>
-          <%= @views_for_my_steplists  %>
-        </td>
-      </tr>
-
-
-    </table>
-
+    <%= render 'shared/tabs_index_bootstrap_tabs', texto: "Dashboard for: #{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
+    <div class="container steplist-cards-background" style= "background-color: #284f8a;">
+      <table class="table color-text">
+        <tr>
+          <th>
+            Steps visited
+          </th>
+          <td>
+            <%=  @my_views.count %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Steps visualizations
+          </th>
+          <td>
+            <%= @my_views_sum  %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            My created Steplists
+          </th>
+          <td>
+            <%= @my_steplists.count  %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Mi visualized created steplists
+          </th>
+          <td>
+            <%= @my_seen_steplists  %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Total visualizations of my Steplists
+          </th>
+          <td>
+            <%= @views_for_my_steplists  %>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

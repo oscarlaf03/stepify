@@ -11,10 +11,13 @@
         <h4><%= @steplist.description %></h4>
         <p>Total Steps: <%= @steplist.steps.count  %></p>
         <% if @steplist.tag_names.any?  %>
-
-        <% @steplist.tag_names.each do |tag| %>
-        <p class="btn btn-primary btn-xs"> <%= link_to "##{tag}", search_path(query: tag), class: 'tag-link-text'%></p>
+          <% @steplist.tag_names.each do |tag| %>
+            <p class="btn btn-primary btn-xs"> <%= link_to "##{tag}", search_path(query: tag), class: 'tag-link-text'%></p>
+          <% end %>
         <% end %>
+        <% if current_user == @steplist.user %>
+          <%= link_to 'Edit', edit_steplist_path(@steplist), class: 'btn btn-success btn-sm'  %>
+          <%= link_to 'Delete', steplist_path(@steplist), method: :delete, data: {confirm: "No going back"}, class: 'btn btn-danger btn-sm' %>
         <% end %>
       </div>
     </div>
@@ -49,7 +52,7 @@
   </div>
   <%end%>
   <div class="container fadeIn" style="width: 300px">
-    <div id="new-step-form" class="fadeIn">
+    <div id="new-step-form" class="fadeIn color-text">
       <h4>Add a Step to your steplist</h4>
       <% if current_user == @steplist.user %>
       <%= render 'shared/form_step', steplist: @steplist, step: @step  %>
