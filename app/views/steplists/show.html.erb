@@ -13,7 +13,7 @@
         <% if @steplist.tag_names.any?  %>
 
         <% @steplist.tag_names.each do |tag| %>
-        <p class="btn btn-primary btn-xs"> <%="##{tag}"%></p>
+        <p class="btn btn-primary btn-xs"> <%= link_to "##{tag}", search_path(query: tag), class: 'tag-link-text'%></p>
         <% end %>
         <% end %>
       </div>
