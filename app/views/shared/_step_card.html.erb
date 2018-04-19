@@ -36,10 +36,10 @@
             <%= render 'shared/show_of_step', step: step %>
             <div class="modal-footer">
               <% unless index == 0 %>
-                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup_<%= step.steplist.steps[index - 1].id %>" data-dismiss="modal"> Back</button>
+                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup_<%= step.steplist.steps.order(created_at: :asc)[index - 1].id %>" data-dismiss="modal"> Back</button>
               <% end %>
               <% unless index == step.steplist.steps.size - 1 %>
-                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup_<%= step.steplist.steps[index + 1].id %>" data-dismiss="modal"> NEXT
+                <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modalpopup_<%= step.steplist.steps.order(created_at: :asc)[index + 1].id %>" data-dismiss="modal"> NEXT
                 </button>
               <% end %>
             </div>
