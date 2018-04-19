@@ -13,8 +13,6 @@
 
 <!-- DISPLAY COMPANY STEPLISTS -->
 
-
-
 <% texto = "#{@organization.company_name}"%>
 <div class = "content-vertical-space">
   <div class="container">
@@ -26,9 +24,9 @@
 
       <div style="min-height: 100vh">
         <div class="organization-header">
-          <div class="organization-logo-container">
-            <div> <%= image_tag logo_path, class: "organization-logo" %></div>
-          </div>
+        <div class="org-thumbnail-show">
+          <%= image_tag logo_path, class: "portrait" %>
+        </div>
         </div>
 
 
