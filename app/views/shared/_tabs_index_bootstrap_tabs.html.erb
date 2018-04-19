@@ -10,8 +10,8 @@
 <%if user_signed_in? %>
 
   <ul class="nav nav-tabs stepify-index">
-    <li role="presentation" class="<%= current_page?(root_path)? 'active': '' %>">
-      <a href='<%= root_path %>'>All Steplists</a>
+    <li role="presentation" class="<%= current_page?(steplists_path)? 'active': '' %>">
+      <a href='<%= steplists_path %>'>All Steplists</a>
     </li>
     <li role="presentation" class="<%= current_page?(my_lists_path)? 'active': '' %>" >
       <a href='<%= my_lists_path %>'>My Steplists</a>

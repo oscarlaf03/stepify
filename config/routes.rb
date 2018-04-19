@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :steps, only: [:create, :new]
     get 'pins', to: 'pins#update_pin'
   end
-  root to: 'steplists#index'
+  root to: 'pages#home'
   resources :steps, only: [:update, :edit, :destroy, :show]
   resources :organizations do
     resources :organization_users, only: [:new, :edit, :create, :update]
