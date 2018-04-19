@@ -19,8 +19,6 @@
   a{
     text-decoration: none;
     color: $stepify-dark-gray;
-    font-weight: bolder;
-    font-size: 18px;
   }
 }
 
@@ -32,6 +30,7 @@
 .steplist-title-card{
   color: $stepify-dark-gray;
   font-weight: bolder;
+  font-size: 18px;
 }
 
 .steplist-cards-background{
@@ -40,3 +39,12 @@
   background-color: rgba(255,0,0,0.7)
 }
 
+.private-icon{
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.steplist-cards-steps{
+  font-weight: thin !important;
+  font-size: 12px !important;
+}

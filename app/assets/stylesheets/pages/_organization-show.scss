@@ -24,33 +24,32 @@
   height: 250px;
   min-height: 80px;
   overflow: hidden;
-  z-index: -1;
-
 }
 
 .organization-logo-container{
-border-style: solid;
-border-color: $stepify-light-gray;
-border-width: thin;
-box-shadow: 0 5px 0 $stepify-salmon;
-margin-top: -100px;
+  border-style: solid;
+  border-color: $stepify-light-gray;
+  border-width: thin;
+  box-shadow: 0 5px 0 $stepify-salmon;
+  margin-top: -100px;
   width: 200px;
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+  z-index: 2;
 }
 
 .organization-logo{
-    max-height: 150px;
-    max-width: 100%;
-    z-index: 1;
+  max-height: 150px;
+  max-width: 100%;
+
 }
 
 .organization-banner-img{
-  // position: absolute;
-  // top: -9999px;
-  // left: -9999px;
-  // right: -9999px;
-  // bottom: -9999px;
-  // margin: auto;
-  }
-
+  flex-shrink: 0;
+  min-width: 100%;
+    min-height: 100%;
+    background-position: center center;
+}
+.organization-subtitle{
+  color: white;
+}
 
