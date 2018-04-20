@@ -22,6 +22,8 @@
           <%= link_to 'Edit', edit_steplist_path(@steplist), class: 'btn btn-success btn-sm'  %>
           <%= link_to 'Delete', steplist_path(@steplist), method: :delete, data: {confirm: "No going back"}, class: 'btn btn-danger btn-sm' %>
         <% end %>
+        <br>
+
       </div>
     </div>
   </div>
@@ -41,7 +43,9 @@
 
 
   <div class="container fadeIn" style="width: 300px">
-    <div id="new-step-form" class="fadeIn">
+    <div id="new-step-form" class="fadeIn align-center">
+        <%= link_to 'More Stepslits', steplists_path, class: 'btn btn-success salmon btn-md'  %>
+
       <div class="form-login">
       <% if current_user == @steplist.user %>
             <h4>Add a step to your steplist</h4>

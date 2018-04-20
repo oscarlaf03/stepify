@@ -20,23 +20,21 @@
 
 
         <div class="pin-box">
-
           <% if  user_signed_in?  %>
-          <% if current_user.pinned?(steplist) %>
-          <div class="pin-box">
-            <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}", class: 'pinned' do %>
-            <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;" ></i>
+            <% if current_user.pinned?(steplist) %>
+              <div class="pin-box">
+                <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}", class: 'pinned' do %>
+                  <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;" ></i>
+                <% end %>
+              </div>
+              <% else %>
+                <div class="pin-box">
+                  <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}" do %>
+                    <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;"></i>
+                  <% end %>
+                </div>
             <% end %>
-          </div>
-          <% else %>
-          <div class="pin-box">
-            <%= link_to steplist_pins_path(steplist), remote: true, id: "pin#{steplist.id}" do %>
-            <i class="fa fa-thumb-tack fa-xs " aria-hidden="true" style="font-size: 20px;"></i>
-            <% end %>
-          </div>
           <% end %>
-          <% end %>
-
         </div>
 
         <div>
