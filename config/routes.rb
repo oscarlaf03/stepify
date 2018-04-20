@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get 'my_lists', to: 'pages#my_lists'
   get 'account', to: 'pages#account'
   get 'my_orgs', to: 'pages#my_orgs'
+  get 'welcome', to: 'pages#welcome'
 end

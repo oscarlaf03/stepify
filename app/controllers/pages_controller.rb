@@ -42,4 +42,7 @@ class PagesController < ApplicationController
     @my_orgs = current_user.organizations
   end
 
+  def welcome
+  end
+
 end
