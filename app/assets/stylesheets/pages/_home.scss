@@ -27,9 +27,16 @@
   max-width: 300px;
 }
 
+.features-container{
+  display: flex;
+  align-items: center;
+}
+
 .features-image{
   max-height: 480px;
   margin-top: -20px;
+  float: right;
+  display: relative;
 }
 
 
@@ -62,11 +69,13 @@ background-image: url("https://www.transparenttextures.com/patterns/absurdity.pn
   background-size: cover;
   animation:fade2 8s infinite;
   -webkit-animation:fade2 8s infinite;
+  border-top: solid $stepify-salmon;
 }
 .home-slide3 {
   background-size: cover;
   animation:fade3 8s infinite;
   -webkit-animation:fade3 8s infinite;
+  border-top: solid $stepify-salmon;
 }
 @keyframes fade
 {
