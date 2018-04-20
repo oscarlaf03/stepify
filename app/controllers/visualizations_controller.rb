@@ -8,9 +8,11 @@ class VisualizationsController < ApplicationController
     @my_steplists = policy_scope(Steplist).where(user: @user)
     @my_seen_steplists = my_seen_steplists(@my_steplists)
     @views_for_my_steplists = total_views_of_my_steplists(@my_steplists)
-
-
   end
+
+
+
+
 
   private
 
@@ -52,4 +54,5 @@ class VisualizationsController < ApplicationController
     end
     return counter
   end
+
 end
