@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 .main-banner{
   height: 50vh;
-  background: linear-gradient(to right, #1C3660 500%, #284F8A 100%);
+  background: linear-gradient(to right, #1C3660 10%, #425E89 90%);
   display: flex;
   text-align: center;
   justify-content: center;
@@ -27,6 +27,65 @@
   max-width: 300px;
 }
 
-.features{
+.features-image{
+  max-height: 480px;
+  margin-top: -20px;
+}
 
+
+#features-home-section{
+  background-color: #ebebeb;
+background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+}
+
+
+// home-SLIDER FOR CHANGING CONTENT
+
+.home-slider {
+  max-width: 300px;
+  height: 200px;
+  margin: 20px auto;
+  position: relative;
+}
+.home-slide1,.home-slide2,.home-slide3,.home-slide4,.home-slide5 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.home-slide1 {
+  background-size: cover;
+  animation:fade 8s infinite;
+  -webkit-animation:fade 8s infinite;
+  border-top: solid $stepify-salmon;
+}
+.home-slide2 {
+  background-size: cover;
+  animation:fade2 8s infinite;
+  -webkit-animation:fade2 8s infinite;
+}
+.home-slide3 {
+  background-size: cover;
+  animation:fade3 8s infinite;
+  -webkit-animation:fade3 8s infinite;
+}
+@keyframes fade
+{
+  0%   {opacity:1}
+  33.333% { opacity: 0}
+  66.666% { opacity: 0}
+  100% { opacity: 1}
+}
+@keyframes fade2
+{
+  0%   {opacity:0}
+  33.333% { opacity: 1}
+  66.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade3
+{
+  0%   {opacity:0}
+  33.333% { opacity: 0}
+  66.666% { opacity: 1}
+  100% { opacity: 0}
 }
