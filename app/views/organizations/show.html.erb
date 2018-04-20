@@ -44,24 +44,27 @@
 
         <div class="container">
           <div class="row">
-            <% if @public_steplists.any? %>
-              <h4 class="organization-subtitle">Public steplists for <%= @organization.company_name %></h4>
-              <% @public_steplists.each do  |steplist|%>
-              <%= render 'shared/steplist_card', steplist: steplist  %>
+            <% if @private_steplists.any? %>
+              <% if @organization.users.include?(current_user)  %>
+                <h4 class="organization-subtitle">Private Steplists for <strong> <%= @organization.company_name %></<h4></h4></strong>
+                  <% @private_steplists.each do  |steplist|%>
+                    <%= render 'shared/steplist_card', steplist: steplist  %>
+                  <% end %>
               <% end %>
             <% end %>
           </div>
 
           <div class="row">
-            <% if @private_steplists.any? %>
-            <% if @organization.users.include?(current_user)  %>
-            <h4 class="organization-subtitle">Private Steplists for <strong> <%= @organization.company_name %></<h4></h4></strong>
-            <% @private_steplists.each do  |steplist|%>
-            <%= render 'shared/steplist_card', steplist: steplist  %>
-            <% end %>
-            <% end %>
+            <% if @public_steplists.any? %>
+              <h4 class="organization-subtitle">Public steplists for <%= @organization.company_name %></h4>
+              <% @public_steplists.each do  |steplist|%>
+                <%= render 'shared/steplist_card', steplist: steplist  %>
+              <% end %>
             <% end %>
           </div>
+
+
+
         </div>
       </div>
     </div>

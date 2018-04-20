@@ -8,6 +8,7 @@ class SteplistsController < ApplicationController
     @my_steplists = policy_scope(Steplist).where(private: false, user: current_user).order(created_at: :desc)
     @my_pins = Pin.where(user: current_user)
 
+
   end
 
 
@@ -51,6 +52,8 @@ class SteplistsController < ApplicationController
     @step = Step.new
     @photos = @step.photos.build
     @steps = @steplist.steps.order(:created_at)
+    @sum_of_steplists_step_views = sum_of_views_of_steps(@steplist)
+
   end
 
   def destroy
@@ -80,6 +83,16 @@ class SteplistsController < ApplicationController
 
   def set_info_tag
     @info_tag = params[:steplist][:info_tag]
+  end
+
+  def sum_of_views_of_steps(steplist)
+    counter = 0
+    steplist.steps.each do |step|
+      step.visualizations.each do |view|
+        counter += view.views
+      end
+    end
+    return counter
   end
 
 end

@@ -9,6 +9,9 @@
         <p> Created by: <strong><%= "#{@steplist.user.first_name.capitalize} #{@steplist.user.last_name.capitalize}"  %></strong>  |  Last edited: <strong><%= @steplist.updated_at.strftime("%d/%m/%Y") %></strong></p>
         <h4><%= @steplist.description %></h4>
         <p>Total Steps: <%= @steplist.steps.count  %></p>
+        <p>
+          Total Views: <%= @sum_of_steplists_step_views   %>
+        </p>
         <% if @steplist.tag_names.any?  %>
           <% @steplist.tag_names.each do |tag| %>
             <p class="btn btn-primary btn-xs"> <%= link_to "##{tag}", search_path(query: tag), class: 'tag-link-text'%></p>
