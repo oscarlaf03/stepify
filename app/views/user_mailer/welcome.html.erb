@@ -1,6 +1,6 @@
 <body style="font-family:'Source Sans Pro'  color:white background-color:#284f8a;">
 
-  <h1 class='title'>Hello, <%= @user.first_name %></h1>
+  <h1 class='title'>Hello, <%= @user.first_name.capitalize %></h1>
 
   <p>
     Thank you for joining Stepify
@@ -38,8 +38,7 @@
 
   <div class= 'logo-box' style= "background-color:black;">
     <a href="http://www.getstepify.com/">
-      <%= cl_image_tag("logo5.png",
-      width: 240, height: 240, crop: :fill) %>
+      <%= cl_image_tag("logo5.png", width: 100, height: 100, crop: :scale) %>
     </a>
   </div>
 
