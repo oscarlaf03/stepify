@@ -1,4 +1,4 @@
-<body style="font-family:'Source Sans Pro' sans-serif; color:white background-color: #284f8a;">
+<body style="font-family:'Source Sans Pro'  color:white background-color:#284f8a;">
 
   <h1 class='title'>Hello, <%= @user.first_name %></h1>
 
@@ -36,9 +36,10 @@
     The Stepify team
   </p>
 
-  <div class= 'logo-box'>
+  <div class= 'logo-box' style= "background-color:black;">
     <a href="http://www.getstepify.com/">
-      <img src="http://res.cloudinary.com/dkkvtcelc/image/upload/v1524572824/logo5.png" alt="Stepify log image" class='logo-image' style="align-self:right max-width:240px max-height:240px background-color:black border-radius:12px padding:5px text-align:right;">
+      <%= cl_image_tag("logo5.png",
+      width: 240, height: 240, crop: :fill) %>
     </a>
   </div>
 
