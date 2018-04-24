@@ -1,4 +1,4 @@
-<body style="font-family:'Source Sans Pro'  color:white background-color:#284f8a;">
+<div style="font-family:'Source Sans Pro' color:white background-color:#284f8a;">
 
   <h1 class='title'>Hello, <%= @user.first_name.capitalize %></h1>
 
@@ -11,7 +11,7 @@
   </p>
 
   <p>
-    To make our vision come to life we need to build an engaged and motivated community, thats why e work hard for you to have a pleasant and useful experience from our site.
+    To make our vision come to life we need to build an engaged and motivated community, thats why we work hard for you to have a pleasant and useful experience from our site.
   </p>
   <p>
     Please do not hesitate to share with us any feedback and suggestions that could help us make of Stepify a better tool and community.
@@ -21,9 +21,9 @@
     And now that your in create your first Steplist
   </p>
 
-  <p class='button-p'>
-    <%= link_to 'Create a new Steplist', new_steplist_url, class: 'btn', style: "color: white text-decoration:none background-color:#FF6F5C border:2px solid white display: inline-block margin-bottom:0 font-weight:normal text-align:center vertical-align:middle touch-action:manipulation cursor:pointer white-space:nowrap padding: 6px 12px font-size:18px line-height:1.428571429 border-radius:9px;" %>
-  </p>
+  <button style="color: white text-decoration:none background-color:#FF6F5C border:2px solid white display: inline-block margin-bottom:0 font-weight:normal text-align:center vertical-align:middle touch-action:manipulation cursor:pointer white-space:nowrap padding: 6px 12px font-size:18px line-height:1.428571429 border-radius:9px;">
+    <%= link_to 'Create a new Steplist', new_steplist_url  %>
+  </button>
 
   <p>
     Have a great day
@@ -36,17 +36,15 @@
     The Stepify team
   </p>
 
-  <div class= 'logo-box' style= "background-color:black;">
-    <a href="http://www.getstepify.com/">
-      <%= cl_image_tag("logo5.png", width: 100, height: 100, crop: :scale) %>
-    </a>
-  </div>
+  <p>
+    http://www.getstepify.com
+  </p>
 
   <p class="slogan" style= "font-style:italic font-size:15px color: white;">
     "Every step counts"
   </p>
 
-</body>
+</div>
 
 <style>
   body {
