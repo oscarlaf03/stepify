@@ -1,7 +1,7 @@
 <div class ="content-vertical-space">
   <div class="container">
     <%= render 'shared/tabs_index_bootstrap_tabs', texto: "Companies that leverage knowledge with Stepify" %>
-    <div class="container steplist-cards-background" style= "background-color: #284f8a;">
+    <div class="container steplist-cards-background">
       <% @organizations.each do |org| %>
         <%= render 'shared/org_card', org: org  %>
       <% end %>

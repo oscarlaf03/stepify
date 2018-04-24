@@ -17,7 +17,7 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get organizations_index_url
+    get organizations_index_urs'
     assert_response :success
   end
 

@@ -3,7 +3,7 @@
 <div class ="content-vertical-space">
   <div class="container">
     <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto%>
-    <div class="container steplist-cards-background" style="padding-top: 40px; background-color: #284f8a;">
+    <div class="container steplist-cards-background">
       <% @my_pins.each do |pin| %>
         <%= render 'shared/steplist_card', steplist: pin.steplist %>
       <% end %>
