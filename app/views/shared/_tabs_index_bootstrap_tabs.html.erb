@@ -1,14 +1,14 @@
 
 
 <div>
-  <div class="">
-    <div class="container">
-      <h3 style="color: white; padding-top: 15px; padding-bottom: 15px;"><%= texto %></h3>
-    </div>
+  <div class="container">
+    <h3 class="page-header">
+      <%= texto %>
+    </h3>
   </div>
+</div>
 
 <%if user_signed_in? %>
-
   <ul class="nav nav-tabs stepify-index">
     <li role="presentation" class="<%= current_page?(steplists_path)? 'active': '' %>">
       <a href='<%= steplists_path %>'>All Steplists</a>
