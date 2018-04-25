@@ -1,15 +1,14 @@
 #r-navbar{
   background-color: $stepify-salmon;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   margin-bottom: 0px;
-  font-size: 15px;
-  font-weight: bold;
-
-  li > a {
-  color: #fff;
-  }
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  border-style: none;
 }
 
 .r-navbar-logo{
   background-color: #333333;
 }
+
