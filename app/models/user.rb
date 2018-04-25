@@ -23,10 +23,14 @@ class User < ApplicationRecord
     Pin.where(user: self, steplist: steplist).first
   end
 
+  # To be used for active admin
+  def name
+    "#{id}-#{first_name}-#{email}"
+  end
+
   private
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
-
 end
