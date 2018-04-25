@@ -7,4 +7,9 @@ class Organization < ApplicationRecord
   mount_uploader :image_banner, ImageUploader
   has_many :organization_users
   has_many :users, through: :organization_users
+
+  # For active admin visualization
+  def name
+    "#{id}-#{company_name}"
+  end
 end

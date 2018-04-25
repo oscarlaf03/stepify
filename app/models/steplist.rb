@@ -13,6 +13,13 @@ class Steplist < ApplicationRecord
   before_save :add_tags
   before_update :update_tags
 
+  # For Active Admin
+
+  def name
+    "#{id}-#{title}by: #{User.find(user_id).first_name}"
+  end
+
+
   private
 
   def add_tags

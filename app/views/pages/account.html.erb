@@ -6,6 +6,9 @@
       <h2> Manage your Account </h2>
     </div>
     <%= link_to "Add new Organization", new_organization_path, class: 'btn btn-primary btn-sm'  %>
+    <% if current_user.admin? %>
+      <%= link_to "Go to admin panel", admin_root_path, class: 'btn btn-warning bt-lg'%>
+    <% end %>
 
     <table class="table">
       <tr>
