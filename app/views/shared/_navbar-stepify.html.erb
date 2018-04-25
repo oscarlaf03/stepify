@@ -16,11 +16,7 @@
 
 
 
-
-
-
-
-
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
      <li>
       <div class="search-bar" style="">
@@ -36,14 +32,6 @@
     </li>
 
 
-
-
-
-
-
-
-
-
     <!-- Stepify if logged in ///// -->
     <% if user_signed_in? %>
     <!-- Links when logged in////////// -->
@@ -53,9 +41,6 @@
     <li><%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %>
     </li>
     <!-- Login link (when logged out) -->
-
-
-
 
       <li class="dropdown">
         <% if current_user.user_photo.present? %>
@@ -93,7 +78,6 @@
     <li>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     </li>
-
 
       <% end %>
 
