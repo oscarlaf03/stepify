@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
+gem 'pg_search'
 
 
 
