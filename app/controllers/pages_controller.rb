@@ -26,10 +26,12 @@ class PagesController < ApplicationController
         OR steps.description @@ :query \
       "
 
+      @pg_search_results = PgSearch.multisearch(params[:query])
+      @public_results = policy_scope(Steplist).where(private: false).joins(:steps).where(sql_query, query: "%#{params[:query]}%").uniq
 
-      @steplists = policy_scope(Steplist).where(private: false).joins(:steps).where(sql_query, query: "%#{params[:query]}%").uniq
+      @steplists = policy_scope(Steplist).joins(:steps).where(sql_query, query: "%#{params[:query]}%").uniq
     else
-      @steplists = policy_scope(Steplist).where(private: false).order(created_at: :desc)
+      @steplists = policy_scope(Steplist).order(created_at: :desc)
     end
   end
 
