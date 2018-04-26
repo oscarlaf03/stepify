@@ -4,8 +4,17 @@
     <%= render 'shared/tabs_index_bootstrap_tabs', texto: texto %>
       <div class="container steplist-cards-background">
         <% @steplists.each do  |steplist|%>
-          <%=  render 'shared/steplist_card', steplist: steplist %>
+          <% if !user_signed_in? %>
+            <% unless steplist.private? %>
+              <%=  render 'shared/steplist_card', steplist: steplist %>
+            <% end %>
+            <% else %>
+              <% unless steplist.private? && current_user.organizations.exclude?(steplist.organization)  %>
+                  <%=  render 'shared/steplist_card', steplist: steplist %>
+              <% end %>
+          <% end %>
         <% end %>
       </div>
   </div>
 </div>
+

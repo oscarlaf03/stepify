@@ -18,7 +18,7 @@ class SteplistPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    !record.private? || user.organizations.include?(record.organization)
   end
 
 

@@ -1,4 +1,7 @@
 class Step < ApplicationRecord
+  include PgSearch
+  multisearchable against: [:title, :description]
+
   belongs_to :steplist
   has_many :visualizations, dependent: :destroy
   has_many :photos, dependent: :destroy

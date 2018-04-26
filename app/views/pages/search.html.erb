@@ -8,7 +8,9 @@
         Your search for: "<%=params[:query]%>" produced <%= @steplists.count  %> results
       </p>
       <% @steplists.each do  |steplist|%>
-        <%= render 'shared/steplist_card', steplist: steplist %>
+        <% unless steplist.private? && current_user.organizations.exclude?(steplist.organization)  %>
+          <%= render 'shared/steplist_card', steplist: steplist %>
+        <% end %>
       <% end %>
     </div>
   </div>
