@@ -1,5 +1,7 @@
 class Steplist < ApplicationRecord
   Gutentag::ActiveRecord.call self
+  include PgSearch
+  multisearchable against: [:title, :description, :user, :user_tags]
 
   belongs_to :user
   belongs_to :organization, optional: true
@@ -12,6 +14,15 @@ class Steplist < ApplicationRecord
 
   before_save :add_tags
   before_update :update_tags
+
+  # For Active Admin
+
+  def name
+    "#{id}-#{title}by: #{User.find(user_id).first_name}"
+  end
+
+
+
 
   private
 

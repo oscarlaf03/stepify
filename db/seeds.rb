@@ -18,6 +18,7 @@ oscar.password = '123123'
 oscar.first_name = 'oscar'
 oscar.last_name = 'teste'
 oscar.email = 'oscar@teste.com'
+oscar.admin = true
 oscar.save
 
 miguel = User.new
@@ -25,6 +26,7 @@ miguel.password = '123123'
 miguel.first_name = 'miguel'
 miguel.last_name = 'teste'
 miguel.email = 'miguel@teste.com'
+miugel.admin = true
 miguel.save
 puts 'creating root power users'
 

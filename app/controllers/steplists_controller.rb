@@ -4,8 +4,8 @@ class SteplistsController < ApplicationController
   before_action :set_info_tag, only: [:create, :update]
 
   def index
-    @steplists = policy_scope(Steplist).where(private: false).order(created_at: :desc)
-    @my_steplists = policy_scope(Steplist).where(private: false, user: current_user).order(created_at: :desc)
+    @steplists = policy_scope(Steplist).order(created_at: :desc)
+    @my_steplists = policy_scope(Steplist).where(user: current_user).order(created_at: :desc)
     @my_pins = Pin.where(user: current_user)
 
 
