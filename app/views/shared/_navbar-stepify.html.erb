@@ -15,39 +15,62 @@
     </div>
 
 
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
      <li>
-      <div class="search-bar" style="">
+
         <%= form_tag search_path,method: :get do %>
         <%= text_field_tag :query,
         params[:query],
-        class: "form-control", placeholder: 'See steps for...', style: 'background-color: #f5f5f5; color: rgba(0, 0, 0, 0.075);border-style: none;color: #777; height: 30px; margin-top: 7px' %>
+        class: "navbar-right navbar-wagon-item", placeholder: 'Search steps for...', id: "r-navbar-search" %>
         <% end %>
-      </div>
     </li>
 
-    <li><%= link_to "Companies", organizations_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <li><%= link_to "Companies", organizations_path, class: "navbar-wagon-item navbar-wagon-link", id: "r-navbar-text"  %>
     </li>
-
 
     <!-- Stepify if logged in ///// -->
     <% if user_signed_in? %>
     <!-- Links when logged in////////// -->
-    <li><%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <li><%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link", id: "r-navbar-text"  %>
     </li>
 
-    <li><%= link_to "New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <li><%= link_to "+New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link", id: "r-navbar-text" %>
     </li>
     <!-- Login link (when logged out) -->
 
+    <li class="dropdown hidden-lg hidden-sm hidden-md">
+          <a href="#" class="dropdown-toggle navbar-wagon-item" data-toggle="dropdown" role="button" id="r-navbar-text">Profile <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+          <li id="r-navbar-text">
+            <%= link_to account_path do %>
+            <%= t(".account", default: "Account") %>
+            <% end %>
+          </li>
+          <li id="r-navbar-text">
+            <%= link_to edit_user_registration_path do %>
+            <%= t(".settings", default: "Settings", id: "r-navbar-text") %>
+            <% end %>
+          </li>
+          <li id="r-navbar-text">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+        </li>
+
       <li class="dropdown">
+
         <% if current_user.user_photo.present? %>
-      <%= cl_image_tag current_user.user_photo,class: "stepify-avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"   %>
+
+        <%= cl_image_tag current_user.user_photo, class: "stepify-avatar dropdown-toggle hidden-xs", id: "navbar-wagon-menu", "data-toggle" => "dropdown"   %>
+
       <% else %>
       <%= image_tag "avatar_test.png", class: "stepify-avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <% end %>
+
+
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li style="margin-left: 20px">
             Hello, <%= current_user.first_name.capitalize %>
@@ -73,10 +96,10 @@
 
     <% else %>
 
-    <li><%= link_to "All Steps", steplists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <li><%= link_to "All Steps", steplists_path, class: "navbar-wagon-item navbar-wagon-link", id: "r-navbar-text"  %>
     </li>
     <li>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", id: "r-navbar-text"  %>
     </li>
 
       <% end %>
