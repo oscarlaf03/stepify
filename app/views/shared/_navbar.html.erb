@@ -11,6 +11,7 @@
       <% else %>
       <%= image_tag "avatar_test.png", class: "stepify-avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <% end %>
+
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li style="margin-left: 20px">
           Hello, <%= current_user.first_name.capitalize %>
@@ -73,6 +74,7 @@
 
         <li><%= link_to "+New Steplist", new_steplist_path, class: "navbar-wagon-item navbar-wagon-link", id: "r-navbar-text" %>
         </li>
+
         <!-- Login link (when logged out) -->
 
         <li class="dropdown hidden-lg hidden-sm hidden-md">
